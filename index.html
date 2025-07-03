@@ -2,437 +2,203 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
-  <link rel="icon" type="image/jpg" href="assets/images/author-image.jpg" />
-  <link rel="icon" type="image/jpg" href="https://mdhishaamakhtar.netlify.app/assets/images/author-image.jpg" />
-  <title>Md Hishaam Akhtar</title>
-  <!--
-Reflux Template
-https://templatemo.com/tm-531-reflux
--->
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hishaam Akhtar | Portfolio</title>
 
-  <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="assets/css/fontawesome.css" />
-  <link rel="stylesheet" href="assets/css/templatemo-style.css" />
-  <link rel="stylesheet" href="assets/css/owl.css" />
-  <link rel="stylesheet" href="assets/css/lightbox.css" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background-color: #e3fcec;
+      color: #2d2d2d;
+      font-size: 1.35rem;
+      /* bumped up from 1.2rem */
+      line-height: 2.1rem;
+      /* extra breathing room */
+    }
+
+    h1 {
+      font-size: 4rem;
+      /* your name - elegant & proud */
+      line-height: 4.5rem;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      line-height: 3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    h3 {
+      font-size: 1.7rem;
+      line-height: 2.3rem;
+    }
+
+    p,
+    li {
+      font-size: 1.35rem;
+      line-height: 2.1rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #7f5539;
+      /* pastel peanut butter brown */
+    }
+
+    a {
+      color: #386641;
+      /* pastel green accent */
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
-<body>
-  <div id="page-wraper">
-    <!-- Sidebar Menu -->
-    <div class="responsive-nav">
-      <i class="fa fa-bars" id="menu-toggle"></i>
-      <div id="menu" class="menu">
-        <i class="fa fa-times" id="menu-close"></i>
-        <div class="container">
-          <div class="image">
-            <a href="#"><img src="assets/images/author-image.jpg" alt="" /></a>
-          </div>
-          <div class="author-content">
-            <h4>Md Hishaam Akhtar</h4>
-            <span>Student</span>
-          </div>
-          <nav class="main-nav" role="navigation">
-            <ul class="main-menu">
-              <li><a href="#section1">About Me</a></li>
-              <li><a href="#section2">What I’m good at</a></li>
-              <li><a href="#section3">My Work</a></li>
-            </ul>
-          </nav>
-          <div class="social-network">
-            <ul class="soial-icons">
-              <li>
-                <a href="https://www.facebook.com/mdhishaamakhtar2001/"><i class="fa fa-facebook"></i></a>
-              </li>
-              <li>
-                <a href="https://twitter.com/HishaamAkhtar"><i class="fa fa-twitter"></i></a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/mdhishaamakhtar/"><i class="fa fa-linkedin"></i></a>
-              </li>
-              <li>
-                <a href="https://github.com/mdhishaamakhtar"><i class="fa fa-github"></i></a>
-              </li>
-            </ul>
-          </div>
-          <div class="copyright-text">
-            <p>Copyright 2020 Md Hishaam Akhtar</p>
-          </div>
-        </div>
-      </div>
-    </div>
+<body class="leading-relaxed text-lg">
 
-    <section class="section about-me" data-section="section1">
-      <div class="container">
-        <div class="section-heading">
-          <h2>About Me</h2>
-          <div class="line-dec"></div>
-          <span>Hey Everyone! I am Md Hishaam Akhtar. I am a student at Vellore Institute of Technology.
-            I am a Backend Developer at DSC VIT.</span>
-        </div>
-        <div class="left-image-post">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="left-image">
-                <img src="assets/images/hishaam1.jpeg" alt="" />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="right-text">
-                <h4>Who am I?</h4>
-                <p>
-                  Hey Everyone! I am Md Hishaam Akhtar. I study Computer Science at Vellore
-                  Institute of Technology. I am a Backend Developer at <a href="https://dscvit.com">DSC VIT.</a>
-                  I have worked with several tools and technologies including Node.js,
-                  MongoDB, Postgres.
-                  My favorite tool to work with is Node.js.
-                  I also have a <a
-                    href="https://www.udemy.com/course/a-beginners-guide-to-nodejs/?referralCode=29F0953C6BAEEA94B4C7">Node.js
-                    course</a> on Udemy which is free for everyone.
-                  I have a fair knowledge of Docker and Cloud Computing.
-                  I aim to become a Software Engineer.
-                </p>
-              </div>
-            </div>
+  <div class="max-w-4xl mx-auto px-6">
+
+    <!-- Header -->
+    <header class="py-12 flex flex-col md:flex-row md:items-center md:justify-between space-y-6 md:space-y-0">
+      <div>
+        <h1 class="text-6xl font-bold">Md Hishaam Akhtar</h1>
+        <p class="text-2xl mt-3 leading-snug">
+          Backend Engineer @ Groww<br>
+          Exploring AI for social good & scalable systems.
+        </p>
+      </div>
+      <div class="flex justify-center md:justify-end">
+        <img src="assets/profile.jpg" alt="Profile photo" class="rounded-xl w-48 h-48 object-cover shadow-md">
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="space-y-16">
+
+      <!-- About -->
+      <section>
+        <h2 class="text-3xl font-semibold mb-4">About</h2>
+        <p>
+          I’m a backend engineer who thrives on building systems that are not just scalable — but meaningful. My work
+          ranges from crafting real-time engagement infrastructure to designing data-driven campaign systems at scale.
+          I care deeply about how technology interfaces with human behavior. That’s why I’m now exploring AI research at
+          the intersection of psychology, addiction healthcare, and social good — work that I hope bridges robust
+          engineering with real impact.
+        </p>
+      </section>
+
+      <!-- Work Experience -->
+      <section>
+        <h2 class="text-3xl font-semibold mb-4">Work Experience</h2>
+        <h3 class="text-2xl font-semibold mt-4">Groww</h3>
+        <p class="italic">Software Engineer · Jan 2023 – Present<br>Software Engineer Intern · Jun 2021 – Dec 2022</p>
+        <ul class="list-disc ml-6 mt-2">
+          <li>Expanded CEP to new mediums like Feed, Story, WhatsApp, and Email.</li>
+          <li>Migrated batch-based segmentation to real-time for faster campaign targeting.</li>
+          <li>Developed generic-triggered-service to send push alerts for price movements and IPO events.</li>
+          <li>Optimized Apache Pinot for better segmentation query performance.</li>
+        </ul>
+      </section>
+
+      <!-- Projects -->
+      <section>
+        <h2 class="text-3xl font-semibold mb-4">Side Projects</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-xl font-semibold">Hermes – A Live Polling Platform</h3>
+            <p>A WebSocket-based real-time polling tool supporting live voting and instant result rendering for
+              high-concurrency use.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold">Iris – Wikipedia Link Traversal Tool</h3>
+            <p>Scrapes and maps link paths between Wikipedia articles to reveal surprising knowledge trails across
+              topics.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold">Sociocredz – Reward Point Donation Platform</h3>
+            <p>Lets users donate unused loyalty points to NGOs — born from a hackathon idea to encourage everyday
+              giving.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold">Keats – A Social App for Book Lovers</h3>
+            <p>An Android app to facilitate small book clubs, reading prompts, and shared literary discussions.</p>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- Research -->
+      <section>
+        <h2 class="text-3xl font-semibold mb-4">Research</h2>
+        <h3 class="text-xl font-semibold">Real-Time Captioning for Sign Language</h3>
+        <p>
+          Published at ICCMDE 2023 ·
+          <a href="assets/sign-caption-paper.pdf" target="_blank">Read Paper</a><br>
+          Translates sign language gestures into real-time text using a CNN-LSTM model. Designed to improve
+          communication accessibility for the Deaf community.
+        </p>
+      </section>
+
+      <!-- Achievements -->
+      <section>
+        <h2 class="text-3xl font-semibold mb-4">Hackathons & Achievements</h2>
+        <ul class="list-disc ml-6">
+          <li>HackRx 2021 Winner – Sociocredz</li>
+          <li>VIT Hacks Finalist – Iris</li>
+          <li>Udemy Instructor – 15,000+ learners on my Node.js course</li>
+        </ul>
+      </section>
+
+      <!-- Education -->
+      <section>
+        <h2 class="text-3xl font-semibold mb-4">Education</h2>
+        <p>
+          <strong>VIT Vellore</strong>, B.Tech in Computer Science Engineering (2023)<br>
+          CGPA: 9.01 · Relevant courses: Computer Architecture, Web Mining
+        </p>
+      </section>
+
+      <!-- Resume -->
+      <section>
+        <h2 class="text-3xl font-semibold mb-4">Resume</h2>
+        <p>You can view or download my resume here:</p>
+        <a href="assets/Hishaam_Akhtar_Resume.pdf"
+          class="inline-block mt-2 bg-yellow-100 text-brown-900 font-medium py-2 px-4 rounded">Download Resume</a>
+      </section>
+
+      <!-- Contact -->
+      <section>
+        <h2 class="text-3xl font-semibold mb-4">Contact</h2>
+        <ul class="mt-2 space-y-1">
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="mailto:you@example.com">Email</a></li>
+        </ul>
+      </section>
+
+    </main>
+
+    <section class="mt-16 text-sm text-gray-500 italic">
+      <p>
+        All opinions that may be listed here are my own and are not necessarily representative of my employers — past,
+        present, or future.
+      </p>
     </section>
 
-    <section class="section my-services" data-section="section2">
-      <div class="container">
-        <div class="section-heading">
-          <h2>What I'm good at</h2>
-          <div class="line-dec"></div>
-          <span>
-            I have worked with several technologies.
-            I have multiple projects which are made with diverse technological stacks.
-            I have worked with DSC VIT on several projects for the community.
-          </span>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="service-item">
-              <div class="first-service-icon service-icon"></div>
-              <h4>Node.js and Express.js</h4>
-              <p>
-                Most of my projects feature server side coding.
-                Node.js with Express.js is my choice for such scenarios.
-                It is lightweight, easy to use and most importantly,
-                very easy to get started with.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="service-item">
-              <div class="second-service-icon service-icon"></div>
-              <h4>MongoDB</h4>
-              <p>
-                Document Based Databases are very useful in several places.
-                MongoDB is the most popular Document Based Database out there
-                with several applications. Coupled with Node.js, it forms a great pair
-                for any project.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="service-item">
-              <div class="third-service-icon service-icon"></div>
-              <h4>PostgreSQL</h4>
-              <p>
-                Relational Databases have always had a huge role in the industry.
-                It is one of the most essential skills out there to be learnt.
-                And whats better than learning Postgres, which is the largest free
-                and open source relational database.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="service-item">
-              <div class="fourth-service-icon service-icon"></div>
-              <h4>Docker</h4>
-              <p>
-                Deployment of applications play a huge role in any project.
-                With the help of docker and its ability to containerize an application,
-                its very easy to deploy. Docker is a useful skill that I learnt
-                while deploying my projects
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Footer -->
+    <footer class="text-center text-sm text-gray-400 mt-16 mb-6">
+      © 2025 Hishaam Akhtar. All rights reserved.
+    </footer>
 
-    <section class="section my-work" data-section="section3">
-      <div class="container">
-        <div class="section-heading">
-          <h2>My Work</h2>
-          <div class="line-dec"></div>
-          <span>Here are some of my works:</span>
-        </div>
-        <div class="row">
-          <div class="isotope-wrapper">
-            <form class="isotope-toolbar">
-              <label class="that"><input type="radio" data-type="*" checked="" name="isotope-filter" />
-                <span>all</span></label>
-              <label class="this"><input type="radio" data-type="Projects" name="isotope-filter" />
-                <span>Projects</span></label>
-              <label><input type="radio" data-type="WebinarsAndCourses" name="isotope-filter" />
-                <span>Webinars and Courses</span></label>
-              <label><input type="radio" data-type="Internships" name="isotope-filter" />
-                <span>Internships</span></label>
-            </form>
-            <div class="isotope-box">
-              <div class="isotope-item" data-type="Projects">
-                <figure class="snip1321">
-                  <img src="assets/images/portfolio-01.jpeg" alt="sq-sample26" />
-                  <figcaption>
-                    <a href="assets/images/portfolio-01.jpeg" data-lightbox="image-1" data-title="Caption"><i
-                        class="fa fa-search"></i></a>
-                    <a href="https://iris.dscvit.com">
-                      <h4>Iris</h4>
-                      <span>Iris is a fun tool for web hoppers to skip on the long hours of surfing the web and hopping
-                        between webpages to find between links or paths between two totally unrelated things and instead
-                        getting a clean graph listing all hops between those two unrelated things. Iris also allows
-                        users to adjust the depth of this graph and even get the shortest path in this graph.</span>
-                    </a>
-                  </figcaption>
-                </figure>
-              </div>
-
-              <div class="isotope-item" data-type="Projects">
-                <figure class="snip1321">
-                  <img src="assets/images/portfolio-02.jpeg" alt="sq-sample26" />
-                  <figcaption>
-                    <a href="assets/images/portfolio-02.jpeg" data-lightbox="image-1" data-title="Caption"><i
-                        class="fa fa-search"></i></a>
-                    <a href="https://hermes.dscvit.com">
-                      <h4>Hermes</h4>
-                      <span>The Hermes project is a live polling website which allows the operating party or organiser
-                        to create events while generating unique event codes. Under an established event, the organiser
-                        can add multiple polls, quizzes or feedback as found necessary.
-                        Other users can participate in the respective event by entering the valid event code and get
-                        engaged in the various activities of that particular event LIVE!</span>
-                    </a>
-                  </figcaption>
-                </figure>
-              </div>
-
-              <div class="isotope-item" data-type="WebinarsAndCourses">
-                <figure class="snip1321">
-                  <img src="assets/images/portfolio-03.png" alt="sq-sample26" />
-                  <figcaption>
-                    <a href="assets/images/portfolio-03.png" data-lightbox="image-1" data-title="Caption"><i
-                        class="fa fa-search"></i></a>
-                    <a
-                      href="https://www.udemy.com/course/a-beginners-guide-to-nodejs/?referralCode=29F0953C6BAEEA94B4C7">
-                      <h4>Node.js Course</h4>
-                      <span>
-                        NodeJS is an asynchronous event-driven JavaScript runtime which is open source and
-                        cross-platform. It is the fastest growing open source project with more than a billion
-                        downloads. It is becoming increasingly popular owing to its traits of being extremely
-                        lightweight and flexible for building scalable web apps and APIs. It has found applications in
-                        web apps of Netflix, PayPal, LinkedIn and Uber, to name a few. Through this course we hope to
-                        introduce you to this powerful tool, get you started on building APIs so you hit the ground
-                        running as you begin your backend web development journey.
-                      </span>
-                    </a>
-                  </figcaption>
-                </figure>
-              </div>
-
-              <div class="isotope-item" data-type="WebinarsAndCourses">
-                <figure class="snip1321">
-                  <img src="assets/images/portfolio-04.jpeg" alt="sq-sample26" />
-                  <figcaption>
-                    <a href="assets/images/portfolio-04.jpeg" data-lightbox="image-1" data-title="Caption"><i
-                        class="fa fa-search"></i></a>
-                    <a href="https://youtu.be/CT-dLF-u2ic">
-                      <h4>Node.js Webinar</h4>
-                      <span>Back-end development is one of the primary domains chosen by any beginner coding enthusiast.
-                        Back-end development refers to server-side development. It is the term used for
-                        behind-the-scenes activities that happen on a website like logging in to an account, sending a
-                        text-message or purchasing an item on an online store.
-                        NodeJS is an application runtime environment that allows you to write server-side applications
-                        in JavaScript. It comes with many APIs making it suitable for backend development.
-                        If you're a beginner, eager to acquire a new skill, back-end development with Node.js is a great
-                        option. Learn more about it in this webinar.
-                      </span>
-                    </a>
-                  </figcaption>
-                </figure>
-              </div>
-
-              <div class="isotope-item" data-type="Internships">
-                <figure class="snip1321">
-                  <img src="assets/images/winuall.png" alt="sq-sample26" />
-                  <figcaption>
-                    <a href="assets/images/winuall.png" data-lightbox="image-1" data-title="Caption"><i
-                        class="fa fa-search"></i></a>
-                    <a href="https://winuall.com/">
-                      <h4>Software Development Intern - Winuall</h4>
-                      <span>
-                        Winuall is an Ed-Tech Startup delivering live classes and tests to coaching centers. Worked as a
-                        backend developer in their main team for the product.
-                        Worked on improving the scalability of the core backend
-                        Wrote cron jobs for sending email reminders to improve user experience
-                        Deployed and tested a Jitsi server for live online classes
-                        Fixed security bugs in the backend
-                      </span>
-                    </a>
-                  </figcaption>
-                </figure>
-              </div>
-
-              <div class="isotope-item" data-type="Internships">
-                <figure class="snip1321">
-                  <img src="assets/images/smoketrees2.svg" alt="sq-sample26" />
-                  <figcaption>
-                    <a href="assets/images/smoketrees2.svg" data-lightbox="image-1" data-title="Caption"><i
-                        class="fa fa-search"></i></a>
-                    <a href="https://smoketrees.dev/">
-                      <h4>Backend Developer - SmokeTrees</h4>
-                      <span>
-                        SmokeTrees is an organization of freelance student developers who undertake projects for
-                        companies
-                        Worked on the development of Meri Bachat for a client named Earnest Fintech
-                        Worked on the testing of the backend for Earnest Fintech
-                        Worked on the client stubs of the backend for Earnest Fintech
-                      </span>
-                    </a>
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- <section class="section contact-me" data-section="section4">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Contact Me</h2>
-          <div class="line-dec"></div>
-          <span>Fusce eget nibh nec justo interdum condimentum. Morbi justo ex,
-            efficitur at ante ac, tincidunt maximus ligula. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit.</span>
-        </div>
-        <div class="row">
-          <div class="right-content">
-            <div class="container">
-              <form id="contact" action="" method="post">
-                <div class="row">
-                  <div class="col-md-6">
-                    <fieldset>
-                      <input name="name" type="text" class="form-control" id="name" placeholder="Your name..."
-                        required="" />
-                    </fieldset>
-                  </div>
-                  <div class="col-md-6">
-                    <fieldset>
-                      <input name="email" type="text" class="form-control" id="email" placeholder="Your email..."
-                        required="" />
-                    </fieldset>
-                  </div>
-                  <div class="col-md-12">
-                    <fieldset>
-                      <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject..."
-                        required="" />
-                    </fieldset>
-                  </div>
-                  <div class="col-md-12">
-                    <fieldset>
-                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..."
-                        required=""></textarea>
-                    </fieldset>
-                  </div>
-                  <div class="col-md-12">
-                    <fieldset>
-                      <button type="submit" id="form-submit" class="button">
-                        Send Message
-                      </button>
-                    </fieldset>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
   </div>
-
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/lightbox.js"></script>
-  <script src="assets/js/custom.js"></script>
-  <script>
-    //according to loftblog tut
-    $(".main-menu li:first").addClass("active");
-
-    var showSection = function showSection(section, isAnimate) {
-      var direction = section.replace(/#/, ""),
-        reqSection = $(".section").filter(
-          '[data-section="' + direction + '"]'
-        ),
-        reqSectionPos = reqSection.offset().top - 0;
-
-      if (isAnimate) {
-        $("body, html").animate(
-          {
-            scrollTop: reqSectionPos
-          },
-          800
-        );
-      } else {
-        $("body, html").scrollTop(reqSectionPos);
-      }
-    };
-
-    var checkSection = function checkSection() {
-      $(".section").each(function () {
-        var $this = $(this),
-          topEdge = $this.offset().top - 80,
-          bottomEdge = topEdge + $this.height(),
-          wScroll = $(window).scrollTop();
-        if (topEdge < wScroll && bottomEdge > wScroll) {
-          var currentId = $this.data("section"),
-            reqLink = $("a").filter("[href*=\\#" + currentId + "]");
-          reqLink
-            .closest("li")
-            .addClass("active")
-            .siblings()
-            .removeClass("active");
-        }
-      });
-    };
-
-    $(".main-menu").on("click", "a", function (e) {
-      e.preventDefault();
-      showSection($(this).attr("href"), true);
-    });
-
-    $(window).scroll(function () {
-      checkSection();
-    });
-  </script>
-  <script>
-    document.querySelector('.this').click()
-    document.querySelector('.that').click()
-  </script>
 </body>
 
 </html>
