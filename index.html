@@ -126,70 +126,62 @@
         </p>
       </section>
 
+      <!-- Education -->
+      <section>
+        <h2 class="text-3xl font-semibold mb-4">Education</h2>
+
+        <h3 class="text-2xl font-semibold text-brown-700 mt-2">Vellore Institute of Technology (VIT), Vellore</h3>
+        <p class="italic">B.Tech in Computer Science and Engineering · Graduated 2023</p>
+        <p class="mt-2">CGPA: 9.01 / 10.0</p>
+        <p class="mt-2">
+          <strong>Selected Coursework:</strong> Artificial Intelligence · Natural Language Processing ·
+          Theory of Computation and Compiler Design · Operating Systems · Parallel & Distributed Computing ·
+          Computer Architecture · Discrete Mathematics · Cybersecurity · Web Mining ·
+          Data Visualization · Human-Computer Interaction
+        </p>
+
+      </section>
+
+
+
       <!-- Work Experience -->
       <section>
         <h2 class="text-3xl font-semibold mb-4">Work Experience</h2>
 
-        <h3 class="text-2xl font-semibold mt-4">Groww</h3>
-        <p class="italic">Software Engineer · Jun 2023 – Present<br>Software Engineer Intern · Jan 2022 – Jun 2023</p>
-        <ul class="list-disc ml-6 mt-2">
-          <li>Expanded the Customer Engagement Platform to new mediums: Feed, Story, WhatsApp, and Email.</li>
-          <li>Migrated batch-based segmentation to real-time for faster campaign targeting.</li>
-          <li>Developed generic-triggered-service to send push alerts for stock news and price movements in realtime.
-          </li>
-          <li>Optimized Apache Pinot for better resource consumption and query performance.</li>
-        </ul>
+        <h3 class="text-2xl font-semibold text-brown-700 mt-4">
+          Groww
+          <a href="https://groww.in" target="_blank" rel="noopener noreferrer"
+            class="text-sm font-normal text-green-800 ml-2 underline">[Website]</a>
+        </h3>
+        <p class="italic">
+          Software Engineer · Jun 2023 – Present<br>
+          Software Engineer Intern · Jan 2022 – Jun 2023
+        </p>
+        <p class="mt-2">
+          At Groww, I contributed
+          extensively to the Customer Engagement Platform (CEP), helping it scale across newer engagement mediums such
+          as Feed, Story, WhatsApp, and Email. I architected and built a generic-triggered service to deliver real-time
+          stock alerts and technical signal notifications — such as 5% price movements or DMA triggers — directly into
+          these mediums. I led the migration of batch segmentation logic to a real-time streaming system, integrating
+          Groww’s internal event bus (EMS) seamlessly into the CDP and Journeys ecosystem. Additionally, I optimized
+          Apache Pinot configurations across critical tables, resulting in a 90% reduction in both CPU and memory usage,
+          while significantly improving query latencies. I also introduced observability practices within the platform,
+          integrating Prometheus metrics and Airflow–PagerDuty alerting to enhance system reliability and developer
+          visibility.
+        </p>
 
-        <h3 class="text-2xl font-semibold mt-6">Trademarkia</h3>
+
+        <h3 class="text-2xl font-semibold text-brown-700 mt-6">
+          Trademarkia
+          <a href="https://trademarkia.com" target="_blank" rel="noopener noreferrer"
+            class="text-sm font-normal text-green-800 ml-2 underline">[Website]</a>
+        </h3>
         <p class="italic">Software Consultant · Feb 2021 – May 2021</p>
-        <ul class="list-disc ml-6 mt-2">
-          <li>Built a daily data pipeline and trademark search API for legal data retrieval and indexing.</li>
-          <li>Engineered an async geolocation scraper with automated data extraction and storage.</li>
-          <li>Implemented a multi-channel alert system for legal event notifications via email, SMS, and push.</li>
-        </ul>
-      </section>
-
-
-      <!-- Projects -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-4">Side Projects</h2>
-        <div class="space-y-6">
-          <div>
-            <h3 class="text-xl font-semibold">
-              Hermes – A Live Polling Platform
-              <a href="https://github.com/GDGVIT/live-poll" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
-            </h3>
-            <p>A WebSocket-based real-time polling tool supporting live voting and instant result rendering for
-              high-concurrency use.</p>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold">
-              Iris – Wikipedia Link Traversal Tool
-              <a href="https://github.com/GDGVIT/iris-web-backend" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
-            </h3>
-            <p>Scrapes and maps link paths between Wikipedia articles to reveal surprising knowledge trails across
-              topics.</p>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold">
-              Sociocredz – Reward Point Donation Platform
-              <a href="https://github.com/TeamRekursion/sociocredz-backend" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
-            </h3>
-            <p>Lets users donate unused loyalty points to NGOs — born from a hackathon idea to encourage everyday
-              giving.</p>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold">
-              Keats – A Social App for Book Lovers
-              <a href="https://github.com/GDGVIT/keats-android" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
-            </h3>
-            <p>An Android app to facilitate small book clubs, reading prompts, and shared literary discussions.</p>
-          </div>
-        </div>
+        <p class="mt-2">
+          At Trademarkia, I designed a legal data pipeline and trademark search API for efficient indexing and
+          retrieval. I also built an asynchronous scraper for geolocation data and implemented a multi-channel alert
+          system (email, SMS, push) for notifying users of legal events in real time.
+        </p>
       </section>
 
 
@@ -198,44 +190,147 @@
         <h2 class="text-3xl font-semibold mb-6">Research</h2>
 
         <div class="mb-8">
-          <h3 class="text-2xl font-semibold mb-1 text-brown-700">Real-Time Captioning of Sign Language Gestures in Video
-            Meetings</h3>
+          <h3 class="text-2xl font-semibold mb-1 text-brown-700">
+            Real-Time Captioning of Sign Language Gestures in Video Meetings
+          </h3>
           <p class="italic mb-1">
             Sharanya Mukherjee · Md Hishaam Akhtar · Dr. R. Kannadasan
           </p>
           <p class="mb-2">
-            <a href="https://doi.org/10.48550/arXiv.2507.14543" target="_blank"
-              class="text-green-800">arXiv:2507.14543</a> &nbsp;|&nbsp; Presented at ICCMDE 2021
+            <a href="https://doi.org/10.48550/arXiv.2507.14543" target="_blank" class="text-green-800">
+              arXiv:2507.14543
+            </a>
+            &nbsp;|&nbsp; Presented at ICCMDE 2021
           </p>
           <p>
-            Proposed a system that translates sign language gestures into real-time captions using MobileNetV2 and CNN,
-            improving communication accessibility during video meetings for the Deaf and Hard of Hearing community.
+            Developed a real-time sign language recognition system that translates American Sign Language (ASL) gestures
+            into live captions during video meetings — enhancing communication for the Deaf and Hard of Hearing. The
+            system leverages transfer learning with MobileNetV2 and CNN classifiers trained on the large-scale WLASL
+            dataset. A novel browser extension architecture streams model predictions from a local app via WebSocket to
+            overlay subtitles for all participants. Achieved up to 63% word-level accuracy without requiring gloves or
+            3D sensors, making it scalable, affordable, and inclusive.
           </p>
         </div>
       </section>
 
+
+      <!-- Projects -->
+      <section>
+        <h2 class="text-3xl font-semibold mb-4">Side Projects</h2>
+        <div class="space-y-6">
+
+          <div>
+            <h3 class="text-2xl font-semibold">
+              Hermes – A Real-Time Polling and Quiz Platform
+              <a href="https://github.com/GDGVIT/live-poll" target="_blank" rel="noopener noreferrer"
+                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
+            </h3>
+            <p>
+              A scalable WebSocket-based system for conducting live polls and quizzes with instant audience feedback.
+              Built with Node.js, Redis, and MongoDB, Hermes powers interactive events through real-time vote tracking,
+              dynamic question flows, and secure event management.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold">
+              Iris – Wikipedia Pathfinding Engine
+              <a href="https://github.com/GDGVIT/iris-web-backend" target="_blank" rel="noopener noreferrer"
+                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
+            </h3>
+            <p>
+              A high-performance graph traversal service that discovers the shortest path between any two Wikipedia
+              articles. Leveraging Redis-backed BFS, Celery task queues, and Flask APIs, Iris reveals hidden knowledge
+              trails with production-grade architecture and session-isolated path computation.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold">
+              Sociocredz – Reward Point Donation Platform
+              <a href="https://github.com/TeamRekursion/sociocredz-backend" target="_blank" rel="noopener noreferrer"
+                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
+            </h3>
+            <p>
+              A hackathon-born platform that lets users donate unused loyalty points to NGOs. Designed to make
+              micro-philanthropy effortless, it connects everyday consumers with social causes through a lightweight
+              Node.js backend and a simple, impactful interface.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold">
+              Keats – A Collaborative Book Reading App
+              <a href="https://github.com/GDGVIT/keats-android" target="_blank" rel="noopener noreferrer"
+                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
+            </h3>
+            <p>
+              An Android app that transforms reading into a shared social experience. With Firebase-powered clubs,
+              real-time annotations, and page-synced discussions, Keats fosters deeper engagement, inclusive learning,
+              and literary community-building among readers.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold">
+              Jury Duty – A Scalable Multi-Contributor Data Labeling Platform
+              <a href="https://github.com/mdhishaamakhtar/jury-duty" target="_blank" rel="noopener noreferrer"
+                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
+            </h3>
+            <p>
+              A Supabase-powered annotation system enabling rapid, conflict-free dataset labeling by multiple
+              contributors. It features intelligent work distribution, real-time progress tracking, and research-ready
+              structured outputs for IRR, bias detection, and statistical analysis.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Community & Leadership -->
+      <section>
+        <h2 class="text-3xl font-semibold mb-4">Community & Leadership</h2>
+
+        <h3 class="text-2xl font-semibold text-brown-700 mt-4">
+          Backend Developer – GDSC VIT
+          <a href="https://dscvit.com" target="_blank" rel="noopener noreferrer"
+            class="text-sm font-normal text-green-800 ml-2 underline">[Website]</a>
+        </h3>
+        <p class="italic">Apr 2020 – Dec 2022 · 2 yrs 9 mos</p>
+        <p class="mt-2">
+          Served as an inner core member of the Google Developer Students Club at VIT, contributing to backend
+          development across several projects including <em>Hermes</em>, <em>Iris</em>, <em>Akina</em>, and
+          <em>Keats</em> — some of which were featured at DSC OMG. I co-organized major technical events like
+          WomenTechies and DevJams, co-hosted DevTalks 2021, and helped build a custom recruitment platform during the
+          Covid-19 pandemic.
+        </p>
+        <p class="mt-2">
+          <strong>Technologies used:</strong> Node.js · Go · Django · Flask · FastAPI · MongoDB · PostgreSQL · Kotlin ·
+          Android
+        </p>
+      </section>
 
       <!-- Achievements -->
       <section>
         <h2 class="text-3xl font-semibold mb-4">Hackathons & Achievements</h2>
         <div class="space-y-6">
           <div>
-            <h3 class="text-xl font-semibold">Hackcraft – People's Choice Award</h3>
+            <h3 class="text-2xl font-semibold">Hackcraft – People's Choice Award</h3>
             <p>Built an AI-powered live translation tool for Groww Help & Support, enabling multilingual chat support in
               real time.</p>
           </div>
           <div>
-            <h3 class="text-xl font-semibold">Access Denied 2.0 – Winner</h3>
+            <h3 class="text-2xl font-semibold">Access Denied 2.0 – Winner</h3>
             <p>Co-created <em>Sociocredz</em>, a platform for donating unused loyalty points to NGOs — born during a
               24-hour hackathon sprint.</p>
           </div>
           <div>
-            <h3 class="text-xl font-semibold">VIT Hack – Finalist (Healthcare Track)</h3>
+            <h3 class="text-2xl font-semibold">VIT Hack – Finalist (Healthcare Track)</h3>
             <p>Developed a healthcare assistant app built for Flippr’s sponsored challenge at VIT Hacks — selected as a
               finalist in the track.</p>
           </div>
           <div>
-            <h3 class="text-xl font-semibold">Udemy Instructor – 15,000+ learners</h3>
+            <h3 class="text-2xl font-semibold">Udemy Instructor – 15,000+ learners</h3>
             <p>Created a hands-on Node.js course to help developers master backend fundamentals through practical,
               real-world examples.</p>
           </div>
@@ -247,7 +342,7 @@
         <h2 class="text-3xl font-semibold mb-4">Writing</h2>
         <div class="space-y-4">
           <div>
-            <h3 class="text-xl font-semibold">
+            <h3 class="text-2xl font-semibold">
               <a href="https://medium.com/gdg-vit/which-backend-stack-should-you-learn-e4935dfe81bd" target="_blank"
                 class="text-green-800">Which Backend Stack Should You Learn?</a>
             </h3>
@@ -255,7 +350,7 @@
             </p>
           </div>
           <div>
-            <h3 class="text-xl font-semibold">
+            <h3 class="text-2xl font-semibold">
               <a href="https://tech.groww.in/building-a-data-lake-on-google-cloud-platform-98634fa3d66f" target="_blank"
                 class="text-green-800">Building a Data Lake on Google Cloud Platform</a>
             </h3>
@@ -264,24 +359,12 @@
         </div>
       </section>
 
-
-
-
-      <!-- Education -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-4">Education</h2>
-        <p>
-          <strong>VIT Vellore</strong>, B.Tech in Computer Science Engineering (2023)<br>
-          CGPA: 9.01 · Relevant courses: Computer Architecture, Web Mining
-        </p>
-      </section>
-
       <!-- Certifications -->
       <section>
         <h2 class="text-3xl font-semibold mb-4">Certifications</h2>
         <div class="space-y-4">
           <div>
-            <h3 class="text-xl font-semibold">
+            <h3 class="text-2xl font-semibold">
               Machine Learning Specialization
             </h3>
             <p>
@@ -291,7 +374,7 @@
             </p>
           </div>
           <div>
-            <h3 class="text-xl font-semibold">
+            <h3 class="text-2xl font-semibold">
               Architecting with Google Compute Engine Specialization
             </h3>
             <p>
@@ -301,7 +384,7 @@
             </p>
           </div>
           <div>
-            <h3 class="text-xl font-semibold">
+            <h3 class="text-2xl font-semibold">
               Graph Search, Shortest Paths & Data Structures
             </h3>
             <p>
@@ -311,7 +394,7 @@
             </p>
           </div>
           <div>
-            <h3 class="text-xl font-semibold">
+            <h3 class="text-2xl font-semibold">
               Divide & Conquer, Sorting & Randomized Algorithms
             </h3>
             <p>
