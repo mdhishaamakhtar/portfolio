@@ -18,6 +18,7 @@ npm run build:css
 ```
 
 Use `npm run watch:css` during local edits to auto-regenerate `assets/tailwind.css`.
+Pre-commit also runs `npm run build:css` and stages `assets/tailwind.css` automatically.
 
 ## ✨ Features
 

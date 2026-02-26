@@ -4,7 +4,8 @@
   "description": "This is the source code for my personal portfolio website, built to showcase my work, writing, projects, and research.   You can view it live at [hishaam.dev](https://hishaam.dev).",
   "scripts": {
     "build:css": "tailwindcss -c tailwind.config.js -i ./styles/tailwind.input.css -o ./assets/tailwind.css --minify",
-    "watch:css": "tailwindcss -c tailwind.config.js -i ./styles/tailwind.input.css -o ./assets/tailwind.css --watch"
+    "watch:css": "tailwindcss -c tailwind.config.js -i ./styles/tailwind.input.css -o ./assets/tailwind.css --watch",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/mdhishaamakhtar/portfolio#readme",
   "devDependencies": {
+    "husky": "^9.1.7",
     "tailwindcss": "^3.4.17"
   }
 }
