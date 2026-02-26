@@ -10,6 +10,15 @@ You can view it live at [hishaam.dev](https://hishaam.dev).
 - Google Fonts (Cormorant Garamond)
 - Deployed via GitHub Pages
 
+## Build CSS
+
+```bash
+npm install
+npm run build:css
+```
+
+Use `npm run watch:css` during local edits to auto-regenerate `assets/tailwind.css`.
+
 ## ✨ Features
 
 - Responsive and minimalist layout
@@ -22,8 +31,11 @@ You can view it live at [hishaam.dev](https://hishaam.dev).
 
 ```
 .
-├── assets/            # Images, favicon, and media
+├── assets/            # Images, favicon, and built CSS
 ├── index.html         # Main HTML file
+├── styles/            # Tailwind input stylesheet
+├── tailwind.config.js # Tailwind config
+├── package.json       # Build scripts/dependencies
 └── README.md          # This file
 ```
 

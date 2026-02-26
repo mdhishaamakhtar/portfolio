@@ -1,0 +1,24 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "This is the source code for my personal portfolio website, built to showcase my work, writing, projects, and research.   You can view it live at [hishaam.dev](https://hishaam.dev).",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i ./styles/tailwind.input.css -o ./assets/tailwind.css --minify",
+    "watch:css": "tailwindcss -c tailwind.config.js -i ./styles/tailwind.input.css -o ./assets/tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdhishaamakhtar/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mdhishaamakhtar/portfolio/issues"
+  },
+  "homepage": "https://github.com/mdhishaamakhtar/portfolio#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
