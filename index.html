@@ -1,514 +1,742 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hishaam Akhtar | Portfolio</title>
+        <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hishaam Akhtar | Portfolio</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+        <!-- Primary Meta Tags -->
+        <meta name="title" content="Hishaam Akhtar | Portfolio" />
+        <meta
+            name="description"
+            content="Backend engineer who builds at the intersection of systems, human behavior, and social good."
+        />
+        <meta
+            name="keywords"
+            content="Hishaam Akhtar, backend engineer, Groww, portfolio, systems, AI, social good, data engineering"
+        />
+        <meta name="author" content="Md Hishaam Akhtar" />
 
-  <!-- Primary Meta Tags -->
-  <meta name="title" content="Hishaam Akhtar | Portfolio">
-  <meta name="description"
-    content="Backend engineer who builds at the intersection of systems, human behavior, and social good.">
-  <meta name="keywords"
-    content="Hishaam Akhtar, backend engineer, Groww, portfolio, systems, AI, social good, data engineering">
-  <meta name="author" content="Md Hishaam Akhtar">
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://hishaam.dev/" />
+        <meta property="og:title" content="Hishaam Akhtar | Portfolio" />
+        <meta
+            property="og:description"
+            content="Backend engineer who builds at the intersection of systems, human behavior, and social good."
+        />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hishaam.dev/">
-  <meta property="og:title" content="Hishaam Akhtar | Portfolio">
-  <meta property="og:description"
-    content="Backend engineer who builds at the intersection of systems, human behavior, and social good.">
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://hishaam.dev/" />
+        <meta property="twitter:title" content="Hishaam Akhtar | Portfolio" />
+        <meta
+            property="twitter:description"
+            content="Backend engineer who builds at the intersection of systems, human behavior, and social good."
+        />
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://hishaam.dev/">
-  <meta property="twitter:title" content="Hishaam Akhtar | Portfolio">
-  <meta property="twitter:description"
-    content="Backend engineer who builds at the intersection of systems, human behavior, and social good.">
+        <!-- Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link href="assets/tailwind.css" rel="stylesheet" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap"
-    rel="stylesheet">
-  <link href="assets/tailwind.css" rel="stylesheet">
+        <style>
+            body {
+                font-family: "Cormorant Garamond", serif;
+                background-color: #e3fcec;
+                color: #2d2d2d;
+                font-size: 1.35rem;
+                /* bumped up from 1.2rem */
+                line-height: 2.1rem;
+                /* extra breathing room */
+            }
 
-  <style>
-    body {
-      font-family: 'Cormorant Garamond', serif;
-      background-color: #e3fcec;
-      color: #2d2d2d;
-      font-size: 1.35rem;
-      /* bumped up from 1.2rem */
-      line-height: 2.1rem;
-      /* extra breathing room */
-    }
+            h1 {
+                font-size: 4rem;
+                /* your name - elegant & proud */
+                line-height: 4.5rem;
+            }
 
-    h1 {
-      font-size: 4rem;
-      /* your name - elegant & proud */
-      line-height: 4.5rem;
-    }
+            h2 {
+                font-size: 2.4rem;
+                line-height: 3rem;
+                margin-bottom: 0.75rem;
+            }
 
-    h2 {
-      font-size: 2.4rem;
-      line-height: 3rem;
-      margin-bottom: 0.75rem;
-    }
+            h3 {
+                font-size: 1.7rem;
+                line-height: 2.3rem;
+            }
 
-    h3 {
-      font-size: 1.7rem;
-      line-height: 2.3rem;
-    }
+            p,
+            li {
+                font-size: 1.35rem;
+                line-height: 2.1rem;
+            }
 
-    p,
-    li {
-      font-size: 1.35rem;
-      line-height: 2.1rem;
-    }
+            h1,
+            h2,
+            h3 {
+                color: #7f5539;
+                /* pastel peanut butter brown */
+            }
 
-    h1,
-    h2,
-    h3 {
-      color: #7f5539;
-      /* pastel peanut butter brown */
-    }
+            a {
+                color: #386641;
+                /* pastel green accent */
+            }
 
-    a {
-      color: #386641;
-      /* pastel green accent */
-    }
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
 
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
+    <body class="leading-relaxed text-lg">
+        <div class="max-w-4xl mx-auto px-6">
+            <!-- Header -->
+            <header
+                class="py-12 flex flex-col md:flex-row md:items-center md:justify-between space-y-6 md:space-y-0"
+            >
+                <div>
+                    <h1
+                        class="text-6xl font-bold flex items-center gap-2 flex-wrap"
+                    >
+                        Md Hishaam Akhtar
+                        <span>🌈</span>
+                        <img
+                            src="assets/bisexual.png"
+                            alt="Bisexual pride heart"
+                            class="h-20 w-20 inline-block align-middle"
+                        />
+                    </h1>
+                    <p class="text-2xl mt-3 leading-snug">
+                        <b>Engineering @ Groww</b><br />
+                        I build with intent — caring deeply about how it works,
+                        but even more about whom it serves
+                    </p>
+                </div>
+                <div class="flex justify-center md:justify-end">
+                    <img
+                        src="assets/profile.jpg"
+                        alt="Profile photo"
+                        class="rounded-xl w-48 h-48 object-cover shadow-md"
+                    />
+                </div>
+            </header>
 
-<body class="leading-relaxed text-lg">
+            <!-- Main -->
+            <main class="space-y-16">
+                <!-- About -->
+                <section>
+                    <h2 class="text-3xl font-semibold mb-4">About</h2>
+                    <p>
+                        I’m an engineer driven by the urge to build — not just
+                        scalable systems, but ideas that question norms and
+                        tools that quietly empower. My work spans fast-moving
+                        teams and complex architectures, but what I care about
+                        most is building at the intersection of code and
+                        compassion. I’m especially drawn to how technology
+                        shapes human behavior — and how AI might one day support
+                        addiction recovery, mental health, and equitable
+                        education. Above all, I believe engineering should be
+                        inclusive by design: thoughtful, humane, and built to
+                        serve those most often left out.
+                    </p>
+                </section>
 
-  <div class="max-w-4xl mx-auto px-6">
+                <!-- Education -->
+                <section>
+                    <h2 class="text-3xl font-semibold mb-4">Education</h2>
 
-    <!-- Header -->
-    <header class="py-12 flex flex-col md:flex-row md:items-center md:justify-between space-y-6 md:space-y-0">
-      <div>
-        <h1 class="text-6xl font-bold flex items-center gap-2 flex-wrap">
-          Md Hishaam Akhtar
-          <span>🌈</span>
-          <img src="assets/bisexual.png" alt="Bisexual pride heart" class="h-20 w-20 inline-block align-middle" />
-        </h1>
-        <p class="text-2xl mt-3 leading-snug">
-          <b>Engineering @ Groww</b><br>
-          I build with intent — caring deeply about how it works, but even more about whom it serves
-        </p>
-      </div>
-      <div class="flex justify-center md:justify-end">
-        <img src="assets/profile.jpg" alt="Profile photo" class="rounded-xl w-48 h-48 object-cover shadow-md">
-      </div>
-    </header>
+                    <h3 class="text-2xl font-semibold text-brown-700 mt-2">
+                        Vellore Institute of Technology (VIT), Vellore
+                    </h3>
+                    <p class="italic">
+                        B.Tech in Computer Science and Engineering · Graduated
+                        2023
+                    </p>
+                    <p class="mt-2">CGPA: 9.01 / 10.0</p>
+                    <p class="mt-2">
+                        <strong>Selected Coursework:</strong> Artificial
+                        Intelligence · Natural Language Processing · Theory of
+                        Computation and Compiler Design · Operating Systems ·
+                        Parallel & Distributed Computing · Computer Architecture
+                        · Discrete Mathematics · Cybersecurity · Web Mining ·
+                        Data Visualization · Human-Computer Interaction
+                    </p>
+                </section>
 
-    <!-- Main -->
-    <main class="space-y-16">
+                <!-- Work Experience -->
+                <section>
+                    <h2 class="text-3xl font-semibold mb-4">Work Experience</h2>
 
-      <!-- About -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-4">About</h2>
-        <p>
-          I’m an engineer driven by the urge to build — not just scalable systems, but ideas that question norms and
-          tools that quietly empower.
-          My work spans fast-moving teams and complex architectures, but what I care about most is building at the
-          intersection of code and compassion.
-          I’m especially drawn to how technology shapes human behavior — and how AI might one day support addiction
-          recovery, mental health, and equitable education.
-          Above all, I believe engineering should be inclusive by design: thoughtful, humane, and built to serve those
-          most often left out.
-        </p>
-      </section>
+                    <h3 class="text-2xl font-semibold text-brown-700 mt-4">
+                        Groww
+                        <a
+                            href="https://groww.in"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-sm font-normal text-green-800 ml-2 underline"
+                            >[Website]</a
+                        >
+                    </h3>
+                    <p class="italic">
+                        Software Development Engineer 2 · Apr 2025 – Present<br />
+                        Software Development Engineer 1 · Jun 2023 – Apr 2025<br />
+                        Software Development Intern · Jan 2022 – Jun 2023
+                    </p>
+                    <p class="mt-2">
+                        At Groww, I have been shaping the Customer Engagement
+                        Platform, which drives user communication across Push
+                        Notifications, Email, WhatsApp, Feed, and Story. I
+                        architected and built the Generic Triggered Service for
+                        Feed and Story, powering News on Feed, News on Story,
+                        and real-time stock and technical signal alerts. I led
+                        the migration of segmentation and analytics from batch
+                        pipelines to real-time streaming, integrating
+                        interaction events seamlessly into the Customer Data
+                        Platform (CDP) and Journeys. Within Journeys — the
+                        workflow engine for personalised, multi-step campaigns —
+                        I introduced Wait-for-Action across Email, WhatsApp, and
+                        Push Notifications, extended it with multi-trigger entry
+                        points, and added support for multi-CTA Push
+                        Notifications to improve engagement design. I also
+                        strengthened reliability end-to-end through eligibility
+                        alerts, query failover mechanisms, and observability
+                        practices with Prometheus metrics and Airflow–PagerDuty
+                        alerting, alongside targeted fixes that improved
+                        accuracy and stability. Beyond features, I optimised
+                        Apache Pinot configurations to cut resource usage by 90%
+                        and significantly reduced query latencies.
+                    </p>
 
-      <!-- Education -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-4">Education</h2>
+                    <h3 class="text-2xl font-semibold text-brown-700 mt-6">
+                        Trademarkia
+                        <a
+                            href="https://trademarkia.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-sm font-normal text-green-800 ml-2 underline"
+                            >[Website]</a
+                        >
+                    </h3>
+                    <p class="italic">
+                        Software Consultant · Feb 2021 – May 2021
+                    </p>
+                    <p class="mt-2">
+                        At Trademarkia, I designed a legal data pipeline and
+                        trademark search API for efficient indexing and
+                        retrieval. I also built an asynchronous scraper for
+                        geolocation data and implemented a multi-channel alert
+                        system (email, SMS, push) for notifying users of legal
+                        events in real time.
+                    </p>
+                </section>
 
-        <h3 class="text-2xl font-semibold text-brown-700 mt-2">Vellore Institute of Technology (VIT), Vellore</h3>
-        <p class="italic">B.Tech in Computer Science and Engineering · Graduated 2023</p>
-        <p class="mt-2">CGPA: 9.01 / 10.0</p>
-        <p class="mt-2">
-          <strong>Selected Coursework:</strong> Artificial Intelligence · Natural Language Processing ·
-          Theory of Computation and Compiler Design · Operating Systems · Parallel & Distributed Computing ·
-          Computer Architecture · Discrete Mathematics · Cybersecurity · Web Mining ·
-          Data Visualization · Human-Computer Interaction
-        </p>
+                <!-- Research -->
+                <section>
+                    <h2 class="text-3xl font-semibold mb-6">Research</h2>
 
-      </section>
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-1 text-brown-700">
+                            Real-Time Captioning of Sign Language Gestures in
+                            Video Meetings
+                        </h3>
+                        <p class="italic mb-1">
+                            Sharanya Mukherjee · Md Hishaam Akhtar · Dr. R.
+                            Kannadasan
+                        </p>
+                        <p class="mb-2">
+                            <a
+                                href="https://doi.org/10.48550/arXiv.2507.14543"
+                                target="_blank"
+                                class="text-green-800"
+                            >
+                                arXiv:2507.14543
+                            </a>
+                            &nbsp;|&nbsp; Presented at ICCMDE 2021
+                        </p>
+                        <p>
+                            Developed a real-time sign language recognition
+                            system that translates American Sign Language (ASL)
+                            gestures into live captions during video meetings —
+                            enhancing communication for the Deaf and Hard of
+                            Hearing. The system leverages transfer learning with
+                            MobileNetV2 and CNN classifiers trained on the
+                            large-scale WLASL dataset. A novel browser extension
+                            architecture streams model predictions from a local
+                            app via WebSocket to overlay subtitles for all
+                            participants. Achieved up to 63% word-level accuracy
+                            without requiring gloves or 3D sensors, making it
+                            scalable, affordable, and inclusive.
+                        </p>
+                    </div>
+                </section>
 
+                <!-- Projects -->
+                <section>
+                    <h2 class="text-3xl font-semibold mb-4">Side Projects</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                Nexia – A Personal Digital Slambook
+                                <a
+                                    href="https://github.com/mdhishaamakhtar/nexia"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-normal text-green-800 ml-2 underline"
+                                    >[GitHub]</a
+                                >
+                                <a
+                                    href="https://nexia.hishaam.dev"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-normal text-green-800 ml-2 underline"
+                                    >[Website]</a
+                                >
+                            </h3>
+                            <p>
+                                A memory-first digital slambook for your people,
+                                where you can store rich profiles (songs,
+                                quotes, quirks, stories) and ask natural
+                                questions through an AI chat interface. Nexia
+                                uses a Go backend and Next.js frontend with
+                                PostgreSQL + pgvector RAG and Gemini to retrieve
+                                context from your own data and turn it into
+                                useful, conversational answers.
+                            </p>
+                        </div>
 
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                Iris – Wikipedia Pathfinding Engine
+                                <a
+                                    href="https://github.com/GDGVIT/iris-web-backend"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-normal text-green-800 ml-2 underline"
+                                    >[GitHub]</a
+                                >
+                                <a
+                                    href="https://iris.hishaam.dev"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-normal text-green-800 ml-2 underline"
+                                    >[Website]</a
+                                >
+                            </h3>
+                            <p>
+                                A high-performance graph traversal service that
+                                finds efficient paths between any two Wikipedia
+                                articles. Leveraging Redis-backed BFS, Celery
+                                task queues, and Flask APIs, Iris traces hidden
+                                knowledge trails with production-grade
+                                architecture and session-isolated path
+                                computation.
+                            </p>
+                        </div>
 
-      <!-- Work Experience -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-4">Work Experience</h2>
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                java2go – Go Reference for Java Developers
+                                <a
+                                    href="https://github.com/mdhishaamakhtar/java2go"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-normal text-green-800 ml-2 underline"
+                                    >[GitHub]</a
+                                >
+                                <a
+                                    href="https://java2go.hishaam.dev"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-normal text-green-800 ml-2 underline"
+                                    >[Website]</a
+                                >
+                            </h3>
+                            <p>
+                                A learning resource for Java developers picking
+                                up Go — teaching the language through direct
+                                comparisons with Java concepts they already
+                                know. Covers syntax, idioms, concurrency, and
+                                ecosystem differences, so developers can get
+                                productive quickly without starting from zero.
+                            </p>
+                        </div>
 
-        <h3 class="text-2xl font-semibold text-brown-700 mt-4">
-          Groww
-          <a href="https://groww.in" target="_blank" rel="noopener noreferrer"
-            class="text-sm font-normal text-green-800 ml-2 underline">[Website]</a>
-        </h3>
-        <p class="italic">
-          Software Development Engineer 2 · Apr 2025 – Present<br>
-          Software Development Engineer 1 · Jun 2023 – Apr 2025<br>
-          Software Development Intern · Jan 2022 – Jun 2023
-        </p>
-        <p class="mt-2">
-          At Groww, I have been shaping the Customer Engagement Platform, which drives user communication across Push
-          Notifications, Email, WhatsApp, Feed, and Story. I architected and built the Generic Triggered Service for
-          Feed and Story, powering News on Feed, News on Story, and real-time stock and technical signal alerts. I led
-          the migration of segmentation and analytics from batch pipelines to real-time streaming, integrating
-          interaction events seamlessly into the Customer Data Platform (CDP) and Journeys. Within Journeys — the
-          workflow engine for personalised, multi-step campaigns — I introduced Wait-for-Action across Email, WhatsApp,
-          and Push Notifications, extended it with multi-trigger entry points, and added support for multi-CTA Push
-          Notifications to improve engagement design. I also strengthened reliability end-to-end through eligibility
-          alerts, query failover mechanisms, and observability practices with Prometheus metrics and Airflow–PagerDuty
-          alerting, alongside targeted fixes that improved accuracy and stability. Beyond features, I optimised Apache
-          Pinot configurations to cut resource usage by 90% and significantly reduced query latencies.
-        </p>
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                Jury Duty – A Scalable Multi-Contributor Data
+                                Labeling Platform
+                                <a
+                                    href="https://github.com/mdhishaamakhtar/jury-duty"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-normal text-green-800 ml-2 underline"
+                                    >[GitHub]</a
+                                >
+                                <a
+                                    href="https://juryduty.hishaam.dev"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-normal text-green-800 ml-2 underline"
+                                    >[Website]</a
+                                >
+                            </h3>
+                            <p>
+                                A Supabase-powered annotation system enabling
+                                rapid, conflict-free dataset labeling by
+                                multiple contributors. It features intelligent
+                                work distribution, real-time progress tracking,
+                                and research-ready structured outputs for IRR,
+                                bias detection, and statistical analysis.
+                            </p>
+                        </div>
 
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                Hermes – A Real-Time Polling and Quiz Platform
+                                <a
+                                    href="https://github.com/GDGVIT/live-poll"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-normal text-green-800 ml-2 underline"
+                                    >[GitHub]</a
+                                >
+                            </h3>
+                            <p>
+                                A scalable WebSocket-based system for conducting
+                                live polls and quizzes with instant audience
+                                feedback. Built with Node.js, Redis, and
+                                MongoDB, Hermes powers interactive events
+                                through real-time vote tracking, dynamic
+                                question flows, and secure event management.
+                            </p>
+                        </div>
 
-        <h3 class="text-2xl font-semibold text-brown-700 mt-6">
-          Trademarkia
-          <a href="https://trademarkia.com" target="_blank" rel="noopener noreferrer"
-            class="text-sm font-normal text-green-800 ml-2 underline">[Website]</a>
-        </h3>
-        <p class="italic">Software Consultant · Feb 2021 – May 2021</p>
-        <p class="mt-2">
-          At Trademarkia, I designed a legal data pipeline and trademark search API for efficient indexing and
-          retrieval. I also built an asynchronous scraper for geolocation data and implemented a multi-channel alert
-          system (email, SMS, push) for notifying users of legal events in real time.
-        </p>
-      </section>
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                Sociocredz – Reward Point Donation Platform
+                                <a
+                                    href="https://github.com/TeamRekursion/sociocredz-backend"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-normal text-green-800 ml-2 underline"
+                                    >[GitHub]</a
+                                >
+                            </h3>
+                            <p>
+                                A hackathon-born platform that lets users donate
+                                unused loyalty points to NGOs. Designed to make
+                                micro-philanthropy effortless, it connects
+                                everyday consumers with social causes through a
+                                lightweight Node.js backend and a simple,
+                                impactful interface.
+                            </p>
+                        </div>
 
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                Keats – A Collaborative Book Reading App
+                                <a
+                                    href="https://github.com/GDGVIT/keats-android"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-normal text-green-800 ml-2 underline"
+                                    >[GitHub]</a
+                                >
+                            </h3>
+                            <p>
+                                An Android app that transforms reading into a
+                                shared social experience. With Firebase-powered
+                                clubs, real-time annotations, and page-synced
+                                discussions, Keats fosters deeper engagement,
+                                inclusive learning, and literary
+                                community-building among readers.
+                            </p>
+                        </div>
+                    </div>
+                </section>
 
-      <!-- Research -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-6">Research</h2>
+                <!-- Community & Leadership -->
+                <section>
+                    <h2 class="text-3xl font-semibold mb-4">
+                        Community & Leadership
+                    </h2>
 
-        <div class="mb-8">
-          <h3 class="text-2xl font-semibold mb-1 text-brown-700">
-            Real-Time Captioning of Sign Language Gestures in Video Meetings
-          </h3>
-          <p class="italic mb-1">
-            Sharanya Mukherjee · Md Hishaam Akhtar · Dr. R. Kannadasan
-          </p>
-          <p class="mb-2">
-            <a href="https://doi.org/10.48550/arXiv.2507.14543" target="_blank" class="text-green-800">
-              arXiv:2507.14543
-            </a>
-            &nbsp;|&nbsp; Presented at ICCMDE 2021
-          </p>
-          <p>
-            Developed a real-time sign language recognition system that translates American Sign Language (ASL) gestures
-            into live captions during video meetings — enhancing communication for the Deaf and Hard of Hearing. The
-            system leverages transfer learning with MobileNetV2 and CNN classifiers trained on the large-scale WLASL
-            dataset. A novel browser extension architecture streams model predictions from a local app via WebSocket to
-            overlay subtitles for all participants. Achieved up to 63% word-level accuracy without requiring gloves or
-            3D sensors, making it scalable, affordable, and inclusive.
-          </p>
+                    <h3 class="text-2xl font-semibold text-brown-700 mt-4">
+                        Backend Developer – GDSC VIT
+                        <a
+                            href="https://dscvit.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-sm font-normal text-green-800 ml-2 underline"
+                            >[Website]</a
+                        >
+                    </h3>
+                    <p class="italic">Apr 2020 – Dec 2022 · 2 yrs 9 mos</p>
+                    <p class="mt-2">
+                        Served as an inner core member of the Google Developer
+                        Students Club at VIT, contributing to backend
+                        development across several projects including
+                        <em>Hermes</em>, <em>Iris</em>, <em>Akina</em>, and
+                        <em>Keats</em> — some of which were featured at DSC OMG.
+                        I co-organized major technical events like WomenTechies
+                        and DevJams, co-hosted DevTalks 2021, and helped build a
+                        custom recruitment platform during the Covid-19
+                        pandemic.
+                    </p>
+                    <p class="mt-2">
+                        <strong>Technologies used:</strong> Node.js · Go ·
+                        Django · Flask · FastAPI · MongoDB · PostgreSQL · Kotlin
+                        · Android
+                    </p>
+                </section>
+
+                <!-- Achievements -->
+                <section>
+                    <h2 class="text-3xl font-semibold mb-4">
+                        Hackathons & Achievements
+                    </h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                Hackcraft – People's Choice Award
+                            </h3>
+                            <p>
+                                Built an AI-powered live translation tool for
+                                Groww Help & Support, enabling multilingual chat
+                                support in real time.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                Access Denied 2.0 – Winner
+                            </h3>
+                            <p>
+                                Co-created <em>Sociocredz</em>, a platform for
+                                donating unused loyalty points to NGOs — born
+                                during a 24-hour hackathon sprint.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                VIT Hack – Finalist (Healthcare Track)
+                            </h3>
+                            <p>
+                                Developed a healthcare assistant app built for
+                                Flippr’s sponsored challenge at VIT Hacks —
+                                selected as a finalist in the track.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                Udemy Instructor – 15,000+ learners
+                            </h3>
+                            <p>
+                                Created a hands-on Node.js course to help
+                                developers master backend fundamentals through
+                                practical, real-world examples.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Writing -->
+                <section>
+                    <h2 class="text-3xl font-semibold mb-4">Writing</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                <a
+                                    href="https://medium.com/@mdhishaamakhtar/what-revisiting-a-college-project-taught-me-about-growth-as-an-engineer-8302b385f5f2"
+                                    target="_blank"
+                                    class="text-green-800"
+                                    >What Revisiting a College Project Taught Me
+                                    About Growth as an Engineer</a
+                                >
+                            </h3>
+                            <p>
+                                A journey through a project that taught me
+                                engineers evolve not only in what they can
+                                build, but in how they think.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                <a
+                                    href="https://tech.groww.in/building-a-data-lake-on-google-cloud-platform-98634fa3d66f"
+                                    target="_blank"
+                                    class="text-green-800"
+                                    >Building a Data Lake on Google Cloud
+                                    Platform</a
+                                >
+                            </h3>
+                            <p>
+                                An in-depth breakdown of how we set up a
+                                scalable GCP-based data lake at Groww.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                <a
+                                    href="https://medium.com/gdg-vit/which-backend-stack-should-you-learn-e4935dfe81bd"
+                                    target="_blank"
+                                    class="text-green-800"
+                                    >Which Backend Stack Should You Learn?</a
+                                >
+                            </h3>
+                            <p>
+                                A beginner-friendly guide on choosing a backend
+                                tech stack, published with GDG VIT.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Certifications -->
+                <section>
+                    <h2 class="text-3xl font-semibold mb-4">Certifications</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                Machine Learning Specialization
+                            </h3>
+                            <p>
+                                DeepLearning.AI · Issued Jul 2025 ·
+                                <a
+                                    href="https://www.coursera.org/account/accomplishments/certificate/WHJ7O1554H4T"
+                                    target="_blank"
+                                    class="text-green-800"
+                                    >View Credential</a
+                                >
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                Architecting with Google Compute Engine
+                                Specialization
+                            </h3>
+                            <p>
+                                Google Cloud · Issued Jun 2020 ·
+                                <a
+                                    href="https://www.coursera.org/account/accomplishments/certificate/ACGXKP2GFKHE"
+                                    target="_blank"
+                                    class="text-green-800"
+                                    >View Credential</a
+                                >
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                Graph Search, Shortest Paths & Data Structures
+                            </h3>
+                            <p>
+                                Stanford Online · Issued Apr 2020 ·
+                                <a
+                                    href="https://www.coursera.org/account/accomplishments/certificate/WM3D7QGSCBGU"
+                                    target="_blank"
+                                    class="text-green-800"
+                                    >View Credential</a
+                                >
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                Divide & Conquer, Sorting & Randomized
+                                Algorithms
+                            </h3>
+                            <p>
+                                Stanford Online · Issued Mar 2020 ·
+                                <a
+                                    href="https://www.coursera.org/account/accomplishments/certificate/FT2N7RKQMSWN"
+                                    target="_blank"
+                                    class="text-green-800"
+                                    >View Credential</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Test Scores -->
+                <section>
+                    <h2 class="text-3xl font-semibold mb-4">Test Scores</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                IELTS Academic
+                                <a
+                                    href="https://drive.google.com/file/d/1WlR7qXTAP8WDSj-0tZfEupfyH8asuzB5/view?usp=sharing"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-normal text-green-800 ml-2 underline"
+                                    >[Certificate]</a
+                                >
+                            </h3>
+                            <p>
+                                Overall Band: 8.5 · Listening: 9.0 · Reading:
+                                9.0 · Writing: 7.5 · Speaking: 8.0
+                            </p>
+                            <p class="text-gray-600">Issued Sep 2025</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Resume -->
+                <section>
+                    <h2 class="text-3xl font-semibold mb-4">Resume</h2>
+                    <p>You can view or download my resume here:</p>
+                    <a
+                        href="https://drive.google.com/file/d/1buO4Mpqaz2X_eIvL3d_SbLNTm8y1eBe5/view?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-block mt-2 bg-yellow-100 text-brown-900 font-medium py-2 px-4 rounded"
+                    >
+                        View Resume
+                    </a>
+                </section>
+
+                <!-- Contact -->
+                <section>
+                    <h2 class="text-3xl font-semibold mb-4">Contact</h2>
+                    <ul class="mt-2 space-y-1">
+                        <li>
+                            <a href="https://github.com/mdhishaamakhtar"
+                                >GitHub</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.linkedin.com/in/mdhishaamakhtar/"
+                                >LinkedIn</a
+                            >
+                        </li>
+                        <li>
+                            <a href="mailto:hishaamakhtar2001.mha@gmail.com"
+                                >Email</a
+                            >
+                        </li>
+                    </ul>
+                </section>
+            </main>
+
+            <section class="mt-16 text-sm text-gray-500 italic">
+                <p>
+                    All opinions that may be listed here are my own and are not
+                    necessarily representative of my employers — past, present,
+                    or future.
+                </p>
+            </section>
+
+            <!-- Footer -->
+            <footer class="text-center text-sm text-gray-400 mt-16 mb-6">
+                © 2025 Hishaam Akhtar. All rights reserved.
+            </footer>
         </div>
-      </section>
-
-
-      <!-- Projects -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-4">Side Projects</h2>
-        <div class="space-y-6">
-
-          <div>
-            <h3 class="text-2xl font-semibold">
-              Iris – Wikipedia Pathfinding Engine
-              <a href="https://github.com/GDGVIT/iris-web-backend" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
-              <a href="https://iris.hishaam.dev" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[Website]</a>
-            </h3>
-            <p>
-              A high-performance graph traversal service that discovers the shortest path between any two Wikipedia
-              articles. Leveraging Redis-backed BFS, Celery task queues, and Flask APIs, Iris reveals hidden knowledge
-              trails with production-grade architecture and session-isolated path computation.
-            </p>
-          </div>
-
-          <div>
-            <h3 class="text-2xl font-semibold">
-              Nexia – A Personal Digital Slambook
-              <a href="https://github.com/mdhishaamakhtar/nexia" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
-              <a href="https://nexia.hishaam.dev" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[Website]</a>
-            </h3>
-            <p>
-              A memory-first digital slambook for your people, where you can store rich profiles (songs, quotes, quirks,
-              stories) and
-              ask natural questions through an AI chat interface. Nexia uses a Go backend and Next.js frontend with
-              PostgreSQL + pgvector RAG and Gemini to retrieve context from your own data and turn it into useful,
-              conversational answers.
-            </p>
-          </div>
-
-          <div>
-            <h3 class="text-2xl font-semibold">
-              java2go – Go Reference for Java Developers
-              <a href="https://github.com/mdhishaamakhtar/java2go" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
-              <a href="https://java2go.hishaam.dev" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[Website]</a>
-            </h3>
-            <p>
-              A learning resource for Java developers picking up Go — teaching the language through direct comparisons
-              with Java concepts they already know. Covers syntax, idioms, concurrency, and ecosystem differences, so
-              developers can get productive quickly without starting from zero.
-            </p>
-          </div>
-
-          <div>
-            <h3 class="text-2xl font-semibold">
-              Jury Duty – A Scalable Multi-Contributor Data Labeling Platform
-              <a href="https://github.com/mdhishaamakhtar/jury-duty" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
-              <a href="https://juryduty.hishaam.dev" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[Website]</a>
-            </h3>
-            <p>
-              A Supabase-powered annotation system enabling rapid, conflict-free dataset labeling by multiple
-              contributors. It features intelligent work distribution, real-time progress tracking, and research-ready
-              structured outputs for IRR, bias detection, and statistical analysis.
-            </p>
-          </div>
-
-          <div>
-            <h3 class="text-2xl font-semibold">
-              Hermes – A Real-Time Polling and Quiz Platform
-              <a href="https://github.com/GDGVIT/live-poll" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
-            </h3>
-            <p>
-              A scalable WebSocket-based system for conducting live polls and quizzes with instant audience feedback.
-              Built with Node.js, Redis, and MongoDB, Hermes powers interactive events through real-time vote tracking,
-              dynamic question flows, and secure event management.
-            </p>
-          </div>
-
-          <div>
-            <h3 class="text-2xl font-semibold">
-              Sociocredz – Reward Point Donation Platform
-              <a href="https://github.com/TeamRekursion/sociocredz-backend" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
-            </h3>
-            <p>
-              A hackathon-born platform that lets users donate unused loyalty points to NGOs. Designed to make
-              micro-philanthropy effortless, it connects everyday consumers with social causes through a lightweight
-              Node.js backend and a simple, impactful interface.
-            </p>
-          </div>
-
-          <div>
-            <h3 class="text-2xl font-semibold">
-              Keats – A Collaborative Book Reading App
-              <a href="https://github.com/GDGVIT/keats-android" target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[GitHub]</a>
-            </h3>
-            <p>
-              An Android app that transforms reading into a shared social experience. With Firebase-powered clubs,
-              real-time annotations, and page-synced discussions, Keats fosters deeper engagement, inclusive learning,
-              and literary community-building among readers.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Community & Leadership -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-4">Community & Leadership</h2>
-
-        <h3 class="text-2xl font-semibold text-brown-700 mt-4">
-          Backend Developer – GDSC VIT
-          <a href="https://dscvit.com" target="_blank" rel="noopener noreferrer"
-            class="text-sm font-normal text-green-800 ml-2 underline">[Website]</a>
-        </h3>
-        <p class="italic">Apr 2020 – Dec 2022 · 2 yrs 9 mos</p>
-        <p class="mt-2">
-          Served as an inner core member of the Google Developer Students Club at VIT, contributing to backend
-          development across several projects including <em>Hermes</em>, <em>Iris</em>, <em>Akina</em>, and
-          <em>Keats</em> — some of which were featured at DSC OMG. I co-organized major technical events like
-          WomenTechies and DevJams, co-hosted DevTalks 2021, and helped build a custom recruitment platform during the
-          Covid-19 pandemic.
-        </p>
-        <p class="mt-2">
-          <strong>Technologies used:</strong> Node.js · Go · Django · Flask · FastAPI · MongoDB · PostgreSQL · Kotlin ·
-          Android
-        </p>
-      </section>
-
-      <!-- Achievements -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-4">Hackathons & Achievements</h2>
-        <div class="space-y-6">
-          <div>
-            <h3 class="text-2xl font-semibold">Hackcraft – People's Choice Award</h3>
-            <p>Built an AI-powered live translation tool for Groww Help & Support, enabling multilingual chat support in
-              real time.</p>
-          </div>
-          <div>
-            <h3 class="text-2xl font-semibold">Access Denied 2.0 – Winner</h3>
-            <p>Co-created <em>Sociocredz</em>, a platform for donating unused loyalty points to NGOs — born during a
-              24-hour hackathon sprint.</p>
-          </div>
-          <div>
-            <h3 class="text-2xl font-semibold">VIT Hack – Finalist (Healthcare Track)</h3>
-            <p>Developed a healthcare assistant app built for Flippr’s sponsored challenge at VIT Hacks — selected as a
-              finalist in the track.</p>
-          </div>
-          <div>
-            <h3 class="text-2xl font-semibold">Udemy Instructor – 15,000+ learners</h3>
-            <p>Created a hands-on Node.js course to help developers master backend fundamentals through practical,
-              real-world examples.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Writing -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-4">Writing</h2>
-        <div class="space-y-4">
-          <div>
-            <h3 class="text-2xl font-semibold">
-              <a href="https://medium.com/@mdhishaamakhtar/what-revisiting-a-college-project-taught-me-about-growth-as-an-engineer-8302b385f5f2"
-                target="_blank" class="text-green-800">What Revisiting a College Project Taught Me About Growth as an
-                Engineer</a>
-            </h3>
-            <p>A journey through a project that taught me engineers evolve not only in what they can build, but in how
-              they think.</p>
-          </div>
-          <div>
-            <h3 class="text-2xl font-semibold">
-              <a href="https://tech.groww.in/building-a-data-lake-on-google-cloud-platform-98634fa3d66f" target="_blank"
-                class="text-green-800">Building a Data Lake on Google Cloud Platform</a>
-            </h3>
-            <p>An in-depth breakdown of how we set up a scalable GCP-based data lake at Groww.</p>
-          </div>
-          <div>
-            <h3 class="text-2xl font-semibold">
-              <a href="https://medium.com/gdg-vit/which-backend-stack-should-you-learn-e4935dfe81bd" target="_blank"
-                class="text-green-800">Which Backend Stack Should You Learn?</a>
-            </h3>
-            <p>A beginner-friendly guide on choosing a backend tech stack, published with GDG VIT.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Certifications -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-4">Certifications</h2>
-        <div class="space-y-4">
-          <div>
-            <h3 class="text-2xl font-semibold">
-              Machine Learning Specialization
-            </h3>
-            <p>
-              DeepLearning.AI · Issued Jul 2025 ·
-              <a href="https://www.coursera.org/account/accomplishments/certificate/WHJ7O1554H4T" target="_blank"
-                class="text-green-800">View Credential</a>
-            </p>
-          </div>
-          <div>
-            <h3 class="text-2xl font-semibold">
-              Architecting with Google Compute Engine Specialization
-            </h3>
-            <p>
-              Google Cloud · Issued Jun 2020 ·
-              <a href="https://www.coursera.org/account/accomplishments/certificate/ACGXKP2GFKHE" target="_blank"
-                class="text-green-800">View Credential</a>
-            </p>
-          </div>
-          <div>
-            <h3 class="text-2xl font-semibold">
-              Graph Search, Shortest Paths & Data Structures
-            </h3>
-            <p>
-              Stanford Online · Issued Apr 2020 ·
-              <a href="https://www.coursera.org/account/accomplishments/certificate/WM3D7QGSCBGU" target="_blank"
-                class="text-green-800">View Credential</a>
-            </p>
-          </div>
-          <div>
-            <h3 class="text-2xl font-semibold">
-              Divide & Conquer, Sorting & Randomized Algorithms
-            </h3>
-            <p>
-              Stanford Online · Issued Mar 2020 ·
-              <a href="https://www.coursera.org/account/accomplishments/certificate/FT2N7RKQMSWN" target="_blank"
-                class="text-green-800">View Credential</a>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Test Scores -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-4">Test Scores</h2>
-        <div class="space-y-4">
-          <div>
-            <h3 class="text-2xl font-semibold">
-              IELTS Academic
-              <a href="https://drive.google.com/file/d/1WlR7qXTAP8WDSj-0tZfEupfyH8asuzB5/view?usp=sharing"
-                target="_blank" rel="noopener noreferrer"
-                class="text-sm font-normal text-green-800 ml-2 underline">[Certificate]</a>
-            </h3>
-            <p>
-              Overall Band: 8.5 · Listening: 9.0 · Reading: 9.0 · Writing: 7.5 · Speaking: 8.0
-            </p>
-            <p class="text-gray-600">
-              Issued Sep 2025
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Resume -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-4">Resume</h2>
-        <p>You can view or download my resume here:</p>
-        <a href="https://drive.google.com/file/d/1buO4Mpqaz2X_eIvL3d_SbLNTm8y1eBe5/view?usp=sharing" target="_blank"
-          rel="noopener noreferrer"
-          class="inline-block mt-2 bg-yellow-100 text-brown-900 font-medium py-2 px-4 rounded">
-          View Resume
-        </a>
-      </section>
-
-      <!-- Contact -->
-      <section>
-        <h2 class="text-3xl font-semibold mb-4">Contact</h2>
-        <ul class="mt-2 space-y-1">
-          <li><a href="https://github.com/mdhishaamakhtar">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/mdhishaamakhtar/">LinkedIn</a></li>
-          <li><a href="mailto:hishaamakhtar2001.mha@gmail.com">Email</a></li>
-        </ul>
-      </section>
-
-    </main>
-
-    <section class="mt-16 text-sm text-gray-500 italic">
-      <p>
-        All opinions that may be listed here are my own and are not necessarily representative of my employers — past,
-        present, or future.
-      </p>
-    </section>
-
-    <!-- Footer -->
-    <footer class="text-center text-sm text-gray-400 mt-16 mb-6">
-      © 2025 Hishaam Akhtar. All rights reserved.
-    </footer>
-
-  </div>
-</body>
-
+    </body>
 </html>
