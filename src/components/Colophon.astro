@@ -1,0 +1,34 @@
+---
+import { PERSON } from "../consts";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="colophon">
+  <p>
+    The opinions here are mine, not those of any employer, past, present or
+    future.
+  </p>
+  <p>
+    © {year}
+    {PERSON.name}. Set in Cormorant Garamond.
+    <a href="https://github.com/mdhishaamakhtar/portfolio">Source on GitHub</a>.
+  </p>
+</footer>
+
+<style>
+  .colophon {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: clamp(4rem, 10vw, 6rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--hairline);
+    font-size: 0.9375rem;
+    font-style: italic;
+    color: var(--quiet);
+  }
+
+  .colophon a {
+    color: inherit;
+  }
+</style>

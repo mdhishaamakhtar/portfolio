@@ -1,0 +1,499 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import Section from "../components/Section.astro";
+import Colophon from "../components/Colophon.astro";
+import portrait from "../assets/portrait.png";
+import { LINKS, PERSON, SITE_URL } from "../consts";
+import {
+  community,
+  credentials,
+  credo,
+  education,
+  hero,
+  projects,
+  recognition,
+  research,
+  work,
+  writing,
+} from "../data/profile";
+import { profileGraph } from "../lib/schema";
+
+const portraitUrl = new URL("/portrait.jpg", SITE_URL).href;
+
+const links = [
+  { label: "Résumé", href: LINKS.resume },
+  { label: "GitHub", href: LINKS.github, me: true },
+  { label: "LinkedIn", href: LINKS.linkedin, me: true },
+  { label: "Email", href: LINKS.email },
+];
+
+const span = (start: string, end: string) =>
+  start === end ? start : `${start} – ${end}`;
+---
+
+<Base schemas={[profileGraph(portraitUrl)]}>
+  <header class="intro">
+    <div class="who">
+      <h1 class="name">{PERSON.name}</h1>
+      <p class="pride">
+        <span class="bi" aria-hidden="true">
+          <i></i>
+          <i></i>
+          <i></i>
+        </span>
+        <span>Bi, and proud of it.</span>
+      </p>
+    </div>
+    <div class="what">
+      <p class="lede">{hero.lede}</p>
+      <ul class="links">
+        {links.map((link) => (
+          <li>
+            <a href={link.href} rel={link.me ? "me noopener" : undefined}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <Image
+      src={portrait}
+      alt={`${PERSON.givenName} laughing, in glasses and a denim shirt, in warm afternoon light`}
+      widths={[240, 360, 480]}
+      sizes="(min-width: 34rem) 11.5rem, 6.5rem"
+      loading="eager"
+      fetchpriority="high"
+      class="portrait"
+    />
+  </header>
+
+  <main id="main">
+    <Section id="about" title="About">
+      <p>
+        {credo.lead} <em class="quote">{credo.quote}</em>
+      </p>
+      {credo.body.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+      <p>{credo.close}</p>
+    </Section>
+
+    <Section id="work" title="Work">
+      <div class="stack">
+        {work.map((job) => (
+          <article class="item">
+            <h3 class="item-title">
+              <a href={job.href} rel="noopener">
+                {job.company}
+              </a>
+              {job.urdu && (
+                <span lang="ur" dir="rtl" class="urdu">
+                  {job.urdu}
+                </span>
+              )}
+            </h3>
+            <ul class="roles">
+              {job.roles.map((role) => (
+                <li>
+                  <span>{role.title}</span>
+                  <span class="when">{span(role.start, role.end)}</span>
+                </li>
+              ))}
+            </ul>
+            <!-- prettier-ignore -->
+            <p>{job.mention && job.summary.includes(job.mention.label) ? (<>{job.summary.split(job.mention.label)[0]}<a href={job.mention.href} rel="noopener">{job.mention.label}</a>{job.summary.split(job.mention.label)[1]}</>) : job.summary}</p>
+            {job.highlights.length > 0 && (
+              <ul class="points">
+                {job.highlights.map((point) => (
+                  <li>{point}</li>
+                ))}
+              </ul>
+            )}
+            {job.links && (
+              <p class="inline-links">
+                {job.links.map((link) => (
+                  <a href={link.href} rel="noopener">
+                    {link.label}
+                  </a>
+                ))}
+              </p>
+            )}
+          </article>
+        ))}
+      </div>
+    </Section>
+
+    <Section id="projects" title="Projects">
+      <ul class="stack">
+        {projects.map((project) => (
+          <li class="item">
+            <h3 class="item-title">{project.name}</h3>
+            <p class="tagline">{project.tagline}</p>
+            <p>{project.description}</p>
+            <p class="inline-links">
+              <span class="when">{project.stack.join(", ")}</span>
+              {project.links.map((link) => (
+                <a
+                  href={link.href}
+                  rel="noopener"
+                  aria-label={`${project.name} ${link.label === "Live" ? "website" : "source code"}`}
+                >
+                  {link.label === "Live" ? "Website" : "Code"}
+                </a>
+              ))}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </Section>
+
+    <Section id="research" title="Research">
+      <article class="item">
+        <h3 class="item-title">
+          <a href={research.arxiv.href} rel="noopener">
+            {research.title}
+          </a>
+        </h3>
+        <p class="when">
+          With Sharanya Mukherjee and Dr. R. Kannadasan · {research.venue} ·
+          {research.arxiv.id}
+        </p>
+        <p>{research.summary}</p>
+      </article>
+    </Section>
+
+    <Section id="writing" title="Writing">
+      <ul class="list">
+        {writing.map((article) => (
+          <li>
+            <a href={article.href} rel="noopener">
+              {article.title}
+            </a>
+            <span>
+              {article.note} <span class="when">{article.where}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </Section>
+
+    <Section id="elsewhere" title="Elsewhere">
+      <ul class="list">
+        {recognition.map((item) => (
+          <li>
+            <span class="strong">{item.title}</span>
+            <span>{item.detail}</span>
+          </li>
+        ))}
+        <li>
+          <span class="strong">
+            <a href={community.href} rel="noopener">
+              {community.title}
+            </a>
+          </span>
+          <span>{community.detail}</span>
+          <span class="when">{community.when}</span>
+        </li>
+      </ul>
+    </Section>
+
+    <Section id="education" title="Education">
+      <ul class="list">
+        <li>
+          <span class="strong">{education.school}</span>
+          <span class="when">
+            {education.degree}, {education.year} · {education.grade}
+          </span>
+        </li>
+        {credentials.map((item) => (
+          <li>
+            {item.href ? (
+              <a href={item.href} rel="noopener">
+                {item.title}
+              </a>
+            ) : (
+              item.title
+            )}
+            <span class="when">{item.detail}</span>
+          </li>
+        ))}
+      </ul>
+    </Section>
+
+    <Section id="contact" title="Contact">
+      <p>
+        Email is the best way to reach me. I’m always happy to talk about
+        backend systems, Urdu, or something you’re building for the people who
+        usually get left out.
+      </p>
+      <p class="email">
+        <a href={LINKS.email}>{PERSON.email}</a>
+      </p>
+    </Section>
+  </main>
+
+  <Colophon />
+</Base>
+
+<style>
+  /* On a phone the photo sits beside the name, and the line and links run
+     full width beneath. On wider screens the photo takes its own column. */
+  .intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "who photo"
+      "what what";
+    gap: 1.25rem;
+    align-items: center;
+  }
+
+  .who {
+    grid-area: who;
+  }
+
+  .what {
+    grid-area: what;
+  }
+
+  .intro :global(.portrait) {
+    grid-area: photo;
+  }
+
+  .name {
+    font-size: clamp(2.375rem, 7vw, 3.5rem);
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--brown);
+  }
+
+  .pride {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.875rem;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--quiet);
+  }
+
+  .bi {
+    display: grid;
+    gap: 2px;
+    width: 3.5rem;
+  }
+
+  .bi i {
+    display: block;
+    height: 2px;
+  }
+
+  .bi i:nth-child(1) {
+    background: var(--bi-1);
+  }
+  .bi i:nth-child(2) {
+    background: var(--bi-2);
+  }
+  .bi i:nth-child(3) {
+    background: var(--bi-3);
+  }
+
+  .lede {
+    max-width: 38ch;
+    font-size: clamp(1.1875rem, 2.4vw, 1.5rem);
+    line-height: 1.4;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 1.25rem;
+  }
+
+  .links a {
+    display: inline-block;
+    padding-block: 0.25rem;
+  }
+
+  .portrait {
+    width: 6.5rem;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: 50% 30%;
+    border-radius: 0.75rem;
+    box-shadow:
+      0 1px 2px rgb(45 45 45 / 0.12),
+      0 14px 28px -14px rgb(45 45 45 / 0.4);
+  }
+
+  /* Anything wider than a phone: the photo anchors the whole
+     introduction, spanning the name, the line and the links, centred
+     against all of them. */
+  @media (min-width: 34rem) {
+    .intro {
+      grid-template-areas:
+        "who photo"
+        "what photo";
+      gap: 1.25rem 2.5rem;
+    }
+
+    .who {
+      align-self: end;
+    }
+
+    .what {
+      align-self: start;
+    }
+
+    .intro :global(.portrait) {
+      align-self: center;
+    }
+
+    .portrait {
+      width: clamp(8.5rem, 18vw, 11.5rem);
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .name {
+      white-space: nowrap;
+    }
+  }
+
+  main :global(p + p) {
+    margin-top: 0.875rem;
+  }
+
+  .quote {
+    color: var(--brown);
+  }
+
+  .stack {
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 2rem);
+    list-style: none;
+    padding: 0;
+  }
+
+  .item > * + * {
+    margin-top: 0.375rem;
+  }
+
+  .item-title {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    line-height: 1.25;
+    font-weight: 600;
+    color: var(--brown);
+  }
+
+  .item-title a {
+    color: inherit;
+    text-decoration-color: color-mix(in oklab, var(--brown) 35%, transparent);
+  }
+
+  .urdu {
+    margin-left: 0.5rem;
+    font-size: 0.85em;
+    font-weight: 400;
+  }
+
+  .tagline {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .roles {
+    list-style: none;
+    padding: 0;
+  }
+
+  .roles li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0 1rem;
+  }
+
+  .when {
+    font-style: italic;
+    color: var(--quiet);
+  }
+
+  /* A short, fine dash in brown: lighter than a disc, closer to the
+     weight of Cormorant's strokes. */
+  .points {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .points li {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .points li::before {
+    content: "";
+    position: absolute;
+    left: 0.125rem;
+    top: 0.82em;
+    width: 0.625rem;
+    height: 1px;
+    background: var(--brown);
+  }
+
+  .inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.125rem 1rem;
+  }
+
+  .aside {
+    font-style: italic;
+    color: var(--quiet);
+  }
+
+  .list {
+    display: grid;
+    gap: 1.125rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .list li {
+    display: grid;
+    line-height: 1.4;
+  }
+
+  .strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .email {
+    overflow-wrap: anywhere;
+  }
+
+  /* One quiet entrance for the introduction, once, on load. */
+  @media (prefers-reduced-motion: no-preference) {
+    .intro {
+      animation: settle 600ms var(--ease-out) backwards;
+    }
+  }
+
+  @keyframes settle {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+</style>

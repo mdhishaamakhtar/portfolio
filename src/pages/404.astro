@@ -1,0 +1,37 @@
+---
+import Base from "../layouts/Base.astro";
+import { PERSON } from "../consts";
+---
+
+<Base
+  title={`Page not found · ${PERSON.name}`}
+  description="This page doesn’t exist. Head back to the start of hishaam.dev."
+  noindex
+>
+  <main id="main" class="missing">
+    <h1>This page isn’t here.</h1>
+    <p>
+      The link may be old, or the address may have a typo. Everything I’ve put
+      online is linked from the first page.
+    </p>
+    <p>
+      <a href="/">Back to the start</a>
+    </p>
+  </main>
+</Base>
+
+<style>
+  .missing {
+    display: grid;
+    gap: 1rem;
+    max-width: 34rem;
+    padding-block: clamp(2rem, 10vw, 6rem);
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 7vw, 3.5rem);
+    line-height: 1.05;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+</style>

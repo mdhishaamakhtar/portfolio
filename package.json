@@ -1,26 +1,59 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "description": "This is the source code for my personal portfolio website, built to showcase my work, writing, projects, and research.   You can view it live at [hishaam.dev](https://hishaam.dev).",
-  "scripts": {
-    "build:css": "tailwindcss -c tailwind.config.js -i ./styles/tailwind.input.css -o ./assets/tailwind.css --minify",
-    "watch:css": "tailwindcss -c tailwind.config.js -i ./styles/tailwind.input.css -o ./assets/tailwind.css --watch",
-    "prepare": "husky"
+  "name": "hishaam-dev",
+  "private": true,
+  "type": "module",
+  "version": "2.0.0",
+  "description": "Source for hishaam.dev, the personal site of Md Hishaam Akhtar.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mdhishaamakhtar/portfolio.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/mdhishaamakhtar/portfolio/issues"
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "quality": "npm run check && npm run lint && npm run format:check && npm run test",
+    "prepare": "node .husky/install.mjs",
+    "favicon": "node scripts/build-favicon.mjs",
+    "preview:readme": "npm run build && cp dist/og.png .github/assets/hishaam-dev-preview.png"
   },
-  "homepage": "https://github.com/mdhishaamakhtar/portfolio#readme",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.8",
+    "tailwindcss": "^4.3.3"
+  },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@eslint/js": "^9.39.5",
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@typescript-eslint/parser": "^8.71.1",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^1.7.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "globals": "^17.13.0",
+    "happy-dom": "^20.14.6",
     "husky": "^9.1.7",
-    "tailwindcss": "^3.4.17"
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.1",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "satori": "^0.47.1",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.3"
   }
 }

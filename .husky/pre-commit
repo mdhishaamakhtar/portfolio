@@ -1,2 +1,2 @@
-npm run build:css
-git add assets/tailwind.css
+#!/usr/bin/env sh
+npm run quality

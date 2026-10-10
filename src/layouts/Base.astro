@@ -1,0 +1,131 @@
+---
+import { Font } from "astro:assets";
+import "../styles/global.css";
+import {
+  DESCRIPTION,
+  LINKS,
+  OG_IMAGE,
+  PERSON,
+  SITE_URL,
+  THEME_COLOR,
+  TITLE,
+} from "../consts";
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+  /** JSON-LD graphs for this page. */
+  schemas?: unknown[];
+}
+
+const {
+  title = TITLE,
+  description = DESCRIPTION,
+  noindex = false,
+  schemas = [],
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE_URL).href;
+const ogImage = new URL(OG_IMAGE.path, Astro.site ?? SITE_URL).href;
+
+// The direction contract travels in the built HTML so the render can be
+// audited against it. It costs a few hundred bytes.
+const contract = `
+THESIS: Simple and elegant, like the site it replaces: one calm column of Cormorant Garamond on mint, where the words and the work do the talking. It refuses decoration for its own sake.
+OWN-WORLD: Mint #e3fcec ground, deep green ink and links, a quiet label column for section names and dates, hairline dividers, a soft-cornered portrait, the bi flag as three fine rules under the name.
+STORY: Visitors learn he is a backend engineer at Groww and co-founder of Harf, read the work in specifics, and email him.
+FIRST VIEWPORT: Name at display size beside a small portrait, the bi rule, a two-line lede, and plain text links.
+FORM: Classic single-column personal page, user-pinned after two rejected directions; seed key 8337cc54.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={PERSON.name} />
+    <link rel="canonical" href={canonical} />
+    <meta
+      name="robots"
+      content={
+        noindex
+          ? "noindex, follow"
+          : "index, follow, max-image-preview:large, max-snippet:-1"
+      }
+    />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta name="theme-color" content={THEME_COLOR} />
+    <meta name="color-scheme" content="light" />
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <link rel="me" href={LINKS.github} />
+    <link rel="me" href={LINKS.linkedin} />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content={PERSON.name} />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:secure_url" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content={String(OG_IMAGE.width)} />
+    <meta property="og:image:height" content={String(OG_IMAGE.height)} />
+    <meta property="og:image:alt" content={OG_IMAGE.alt} />
+    <meta property="profile:first_name" content={PERSON.givenName} />
+    <meta property="profile:last_name" content={PERSON.familyName} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={OG_IMAGE.alt} />
+
+    <Font
+      cssVariable="--font-cormorant"
+      preload={[
+        { subset: "latin", weight: 500, style: "normal" },
+        { subset: "latin", weight: 600, style: "normal" },
+      ]}
+    />
+    <Font cssVariable="--font-nastaliq" />
+
+    {schemas.map((schema) => (
+      <script
+        is:inline
+        type="application/ld+json"
+        set:html={JSON.stringify(schema)}
+      />
+    ))}
+  </head>
+  <body>
+    <Fragment set:html={`<!--${contract}-->`} />
+    <a class="skip-link" href="#main">
+      Skip to content
+    </a>
+
+    <div class="page">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style>
+  .page {
+    max-width: 66rem;
+    margin-inline: auto;
+    padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2rem)
+      clamp(2.5rem, 6vw, 4rem);
+  }
+</style>

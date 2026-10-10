@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/*
+ * Simple on purpose: one column of Cormorant on Hishaam's mint, deep green
+ * for ink and links, and nothing else competing with the words.
+ */
+@theme {
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-urdu: var(--font-nastaliq), serif;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root {
+  color-scheme: light;
+
+  /* The original site's palette: mint ground, warm brown headings, green
+     links, near-black text. */
+  --bg: #e3fcec;
+  --ink: #2d2d2d;
+  --body: #2d2d2d;
+  --quiet: #66594e;
+  --brown: #7f5539;
+  --green: #386641;
+  --green-deep: #24502f;
+  --hairline: rgb(127 85 57 / 0.22);
+
+  --bi-1: #d60270;
+  --bi-2: #9b4f96;
+  --bi-3: #0038a8;
+}
+
+@layer base {
+  html {
+    background-color: var(--bg);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    /* About 18px on a phone, 21px on a laptop. */
+    font-size: clamp(1.125rem, 0.95rem + 0.6vw, 1.3125rem);
+    line-height: 1.6;
+    color: var(--body);
+    background-color: var(--bg);
+    font-kerning: normal;
+    font-feature-settings:
+      "onum" 1,
+      "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: var(--green);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: color-mix(in oklab, var(--green) 35%, transparent);
+    text-underline-offset: 0.2em;
+    transition:
+      color 180ms ease,
+      text-decoration-color 180ms ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    a:hover {
+      color: var(--green-deep);
+      text-decoration-color: currentColor;
+    }
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--green) 28%, transparent);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  [lang="ur"] {
+    font-family: var(--font-urdu);
+    font-feature-settings: normal;
+  }
+}
+
+@layer components {
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 50;
+    padding: 0.5rem 1rem;
+    background: var(--ink);
+    color: var(--bg);
+    text-decoration: none;
+    transform: translateY(-200%);
+    transition: transform 160ms var(--ease-out);
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0);
+  }
+}
