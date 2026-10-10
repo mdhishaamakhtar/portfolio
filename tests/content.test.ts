@@ -62,9 +62,27 @@ describe("links elsewhere", () => {
       research.arxiv.href,
       ...writing.map((a) => a.href),
       ...credentials.flatMap((c) => (c.href ? [c.href] : [])),
-      ...work.flatMap((j) => [j.href, ...(j.links ?? []).map((l) => l.href)]),
+      ...work.flatMap((j) => [
+        j.href,
+        ...(j.links ?? []).map((l) => l.href),
+        ...(j.mention ? [j.mention.href] : []),
+        ...j.highlights.flatMap((h) =>
+          typeof h === "string" ? [] : [h.link.href],
+        ),
+      ]),
     ];
     for (const href of hrefs) expect(isHttps(href), href).toBe(true);
+  });
+});
+
+describe("linked phrases", () => {
+  test("appear word for word in the line they link from", () => {
+    for (const job of work) {
+      if (job.mention) expect(job.summary).toContain(job.mention.label);
+      for (const h of job.highlights) {
+        if (typeof h !== "string") expect(h.text).toContain(h.link.label);
+      }
+    }
   });
 });
 

@@ -40,14 +40,17 @@ export default defineConfig({
       fallbacks: ["Georgia", "serif"],
     },
     {
-      // One Urdu word appears on the page. unicode-range keeps browsers from
-      // fetching this until it renders.
-      provider: fontsource,
+      // One Urdu word appears on the page, حرف, beside Harf Studios. Google
+      // builds a font holding only its letters (a few KB instead of 155),
+      // which is preloaded and set to block, so the word never flashes in a
+      // fallback face before the real one arrives.
+      provider: fontProviders.google(),
       name: "Noto Nastaliq Urdu",
       cssVariable: "--font-nastaliq",
       weights: [400],
       styles: ["normal"],
-      subsets: ["arabic"],
+      display: "block",
+      options: { experimental: { glyphs: ["حرف"] } },
       fallbacks: ["serif"],
     },
   ],

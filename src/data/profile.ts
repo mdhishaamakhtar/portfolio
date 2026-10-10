@@ -16,6 +16,9 @@ export interface Role {
   end: string;
 }
 
+/** A line of text, optionally with one phrase in it linked. */
+export type Line = string | { text: string; link: Link };
+
 export interface Job {
   company: string;
   /** The name in Urdu, shown beside it. */
@@ -26,7 +29,7 @@ export interface Job {
   mention?: Link;
   links?: Link[];
   roles: Role[];
-  highlights: string[];
+  highlights: Line[];
 }
 
 export interface Project {
@@ -82,7 +85,13 @@ export const work: Job[] = [
     highlights: [
       "An Instagram page that about seventy thousand people follow, with carousels on Urdu words, poetry, films and more.",
       "Song lyrics read properly, line by line, in Urdu, Devanagari and Roman script.",
-      "Our first book, Dars, Volume One: Urdu from the letters up.",
+      {
+        text: "Our first book, Dars, Volume One: Urdu from the letters up.",
+        link: {
+          label: "Dars, Volume One",
+          href: "https://harfstudios.fun/books/dars-volume-one",
+        },
+      },
       "I look after the engineering, from the website to the shop that ships the book.",
     ],
     links: [

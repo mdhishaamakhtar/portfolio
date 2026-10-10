@@ -37,12 +37,12 @@ Light only. Every text colour clears WCAG AA on mint.
 ## Details
 
 - **Bullets:** a 0.625rem by 1px brown dash at x-height, with a 1.5rem indent and 0.5rem between items.
-- **Links:** green, 1px underline at 35% opacity that goes solid on hover (hover only on fine pointers).
+- **Links:** green, 1px underline at 35% opacity that goes solid on hover, instantly (hover only on fine pointers).
 - **Bi rule:** three 2px stripes, 3.5rem wide, beside "Bi, and proud of it." in italic.
 
 ## Motion
 
-One soft fade-and-rise on the intro at load (600ms, `cubic-bezier(0.23, 1, 0.32, 1)`), turned off under `prefers-reduced-motion`. Nothing animates on scroll.
+None. No entrance effects, hover transitions or smooth scrolling: the page is still, on purpose.
 
 ## Social Card and Icons
 

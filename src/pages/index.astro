@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import Section from "../components/Section.astro";
 import Colophon from "../components/Colophon.astro";
+import LinkedText from "../components/LinkedText.astro";
 import portrait from "../assets/portrait.png";
 import { LINKS, PERSON, SITE_URL } from "../consts";
 import {
@@ -101,12 +102,19 @@ const span = (start: string, end: string) =>
                 </li>
               ))}
             </ul>
-            <!-- prettier-ignore -->
-            <p>{job.mention && job.summary.includes(job.mention.label) ? (<>{job.summary.split(job.mention.label)[0]}<a href={job.mention.href} rel="noopener">{job.mention.label}</a>{job.summary.split(job.mention.label)[1]}</>) : job.summary}</p>
+            <p>
+              <LinkedText text={job.summary} link={job.mention} />
+            </p>
             {job.highlights.length > 0 && (
               <ul class="points">
                 {job.highlights.map((point) => (
-                  <li>{point}</li>
+                  <li>
+                    {typeof point === "string" ? (
+                      point
+                    ) : (
+                      <LinkedText text={point.text} link={point.link} />
+                    )}
+                  </li>
                 ))}
               </ul>
             )}
@@ -481,19 +489,5 @@ const span = (start: string, end: string) =>
 
   .email {
     overflow-wrap: anywhere;
-  }
-
-  /* One quiet entrance for the introduction, once, on load. */
-  @media (prefers-reduced-motion: no-preference) {
-    .intro {
-      animation: settle 600ms var(--ease-out) backwards;
-    }
-  }
-
-  @keyframes settle {
-    from {
-      opacity: 0;
-      transform: translateY(6px);
-    }
   }
 </style>

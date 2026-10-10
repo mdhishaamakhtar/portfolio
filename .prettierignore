@@ -5,3 +5,6 @@ coverage
 package-lock.json
 .impeccable
 public/CNAME
+
+# One line on purpose: a break would put spaces inside the link it renders.
+src/components/LinkedText.astro

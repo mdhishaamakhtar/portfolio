@@ -1,0 +1,23 @@
+---
+/**
+ * A sentence with one phrase in it linked, such as a person's name or a
+ * book title. Without a link, or if the phrase isn't in the text, it renders
+ * the text as is.
+ *
+ * The markup below is kept on one line, and this file is listed in
+ * .prettierignore: a line break there puts spaces inside the link
+ * ("Dars, Volume One :"), and Prettier's ignore comment doesn't apply to
+ * top-level expressions in .astro files.
+ */
+interface Props {
+  text: string;
+  link?: { label: string; href: string };
+}
+
+const { text, link } = Astro.props;
+const at = link ? text.indexOf(link.label) : -1;
+const before = at >= 0 ? text.slice(0, at) : text;
+const after = at >= 0 && link ? text.slice(at + link.label.length) : "";
+---
+
+{before}{at >= 0 && link && <a href={link.href} rel="noopener">{link.label}</a>}{after}

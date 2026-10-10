@@ -53,7 +53,7 @@ Components only arrange content. To change copy, edit `src/data/profile.ts` or `
 - **Type:** Cormorant Garamond only (500 and 600, with italics). Noto Nastaliq Urdu only for the word حرف next to Harf Studios. Body text is about 18px on phones and 21px on laptops (fluid `clamp`).
 - **Identity:** engineer first. **No Islamic or Mughal visual motifs** (arches, gold flecks, manuscript ornament). Urdu appears only in the Harf context. Keep the bi-flag triple rule and "Bi, and proud of it." under the name.
 - **Harf** is one entry under Work, with a description. No book cover or product images. Vaniya's name links to her Instagram and does not appear in the intro line.
-- **Motion:** a single soft fade on the intro at load. Nothing scroll-driven, nothing per section. Scrolling must stay at full frame rate.
+- **No animation.** No entrance effects, no transitions, no smooth scrolling. The owner removed them deliberately; scrolling must stay at full frame rate.
 - **Bullets:** the thin brown dash defined in `index.astro` (`.points`), not discs.
 
 ## Copy Rules
