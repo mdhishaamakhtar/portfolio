@@ -48,7 +48,7 @@ An engineer who builds high-scale backend systems by day and, with Vaniya, is ma
 
 - src/assets/portrait.png (laughing portrait, 1200x1600, from the Harf site)
 - Work: Groww (SDE 2 since Apr 2025, SDE 1 from Jun 2023, intern from Jan 2022), Trademarkia (consultant, 2021)
-- Harf Studios: harfstudios.fun, co-founded with Vaniya, established 2026 in India. Short Urdu videos (@harf.studios on Instagram, about 70k followers), the book _Dars, Volume One_ (48-page A5 first book of Urdu, ₹299), and line-by-line readings of song lyrics at /lyrics.
+- Harf Studios: harfstudios.fun, co-founded with Vaniya, established 2026 in India. Carousels on Urdu words, poetry and films (@harf.studios on Instagram, about 70k followers), the book _Dars, Volume One_ (48-page A5 first book of Urdu, ₹299), and line-by-line readings of song lyrics at /lyrics.
 - Research: an arXiv paper (2507.14543) on real-time ASL captioning in video meetings, presented at ICCMDE 2021.
 - Projects: Hatch, Nexia, Iris, Hermes, Jury Duty, java2go, Sociocredz, Keats
 - Hackathons, a Udemy course (15,000+ learners), three articles, certifications, an IELTS 8.5 score, and a résumé on Google Drive

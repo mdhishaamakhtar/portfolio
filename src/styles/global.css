@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 /*
- * Simple on purpose: one column of Cormorant on Hishaam's mint, deep green
- * for ink and links, and nothing else competing with the words.
+ * Simple on purpose: one column of Cormorant on Hishaam's mint, brown for
+ * the name and headings, green for links, and nothing else competing with
+ * the words.
  */
 @theme {
   --font-serif: var(--font-cormorant), Georgia, serif;
@@ -16,12 +17,14 @@
      links, near-black text. */
   --bg: #e3fcec;
   --ink: #2d2d2d;
-  --body: #2d2d2d;
   --quiet: #66594e;
   --brown: #7f5539;
   --green: #386641;
   --green-deep: #24502f;
   --hairline: rgb(127 85 57 / 0.22);
+
+  /* Running text stops here, about 75 characters of Cormorant a line. */
+  --measure: 68ch;
 
   --bi-1: #d60270;
   --bi-2: #9b4f96;
@@ -41,14 +44,18 @@
     /* About 18px on a phone, 21px on a laptop. */
     font-size: clamp(1.125rem, 0.95rem + 0.6vw, 1.3125rem);
     line-height: 1.6;
-    color: var(--body);
+    color: var(--ink);
     background-color: var(--bg);
     font-kerning: normal;
     font-feature-settings:
       "onum" 1,
       "kern" 1;
     -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: color-mix(
+      in oklab,
+      var(--green) 16%,
+      transparent
+    );
   }
 
   h1,
@@ -63,19 +70,25 @@
     text-wrap: pretty;
   }
 
+  /* Green with a solid underline: a faint underline left green text
+     reading as tinted text on mint rather than as a link. */
   a {
     color: var(--green);
     text-decoration-line: underline;
-    text-decoration-thickness: 1px;
-    text-decoration-color: color-mix(in oklab, var(--green) 35%, transparent);
-    text-underline-offset: 0.2em;
+    text-decoration-thickness: 0.075em;
+    text-decoration-color: currentColor;
+    text-underline-offset: 0.18em;
   }
 
   @media (hover: hover) and (pointer: fine) {
     a:hover {
       color: var(--green-deep);
-      text-decoration-color: currentColor;
     }
+  }
+
+  /* A tap shows at once, with no transition. */
+  a:active {
+    color: var(--green-deep);
   }
 
   ::selection {

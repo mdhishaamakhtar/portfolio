@@ -29,16 +29,20 @@ Light only. Every text colour clears WCAG AA on mint.
 ## Layout
 
 - One column, max 66rem, side padding `clamp(1.25rem, 5vw, 2rem)`.
+- **Measure:** section content stops at `--measure` (68ch, about 70 characters of Cormorant a line). The intro and the colophon rule still span the column.
 - **Intro:** on phones the photo sits beside the name, and the line and links run full width beneath. From 34rem up the photo spans the whole intro, centred against it, at `clamp(8.5rem, 18vw, 11.5rem)`, with a 3:4 crop, 0.75rem corners and a soft shadow.
 - **Sections:** heading stacked above content, `clamp(2.5rem, 6vw, 3.5rem)` above each.
-- **Work entries:** title (linked), roles with dates right-aligned, summary, dash bullets, inline links.
+- **Work entries:** title, roles with dates right-aligned, summary, dash bullets, its links on the right of the title row (the company's domain when it has no others).
+- **Contact:** the email address is set a step up (`clamp(1.25rem, 3vw, 1.5rem)`, 600), since it is the page's last action.
 - **Lists** (writing, elsewhere, education): a bold or linked first line, then a quiet second line.
 
 ## Details
 
 - **Bullets:** a 0.625rem by 1px brown dash at x-height, with a 1.5rem indent and 0.5rem between items.
-- **Links:** green, 1px underline at 35% opacity that goes solid on hover, instantly (hover only on fine pointers).
-- **Bi rule:** three 2px stripes, 3.5rem wide, beside "Bi, and proud of it." in italic.
+- **Links:** always green text with a solid green underline (about 0.075em, offset 0.18em); never brown, never ink. Titles are plain text; an entry's links sit on the right of its title row, above the dates, and go deep green on hover (fine pointers only) and on tap, instantly. Item links get a taller hit area through padding with a matching negative margin.
+- **Bi rule:** three 2px stripes, 3.5rem wide, beside "Bi, and proud of it." in italic at `clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem)`.
+- **Colophon:** 1rem italic quiet text; the © line first, the disclaimer last.
+- **404:** his name in brown, the brown heading, and the colophon, all on the same measure.
 
 ## Motion
 

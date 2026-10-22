@@ -31,6 +31,11 @@ const links = [
 
 const span = (start: string, end: string) =>
   start === end ? start : `${start} – ${end}`;
+
+// Titles are plain brown text; links are always green. A job without its own
+// links points at the company by its domain.
+const jobLinks = (job: (typeof work)[number]) =>
+  job.links ?? [{ label: new URL(job.href).hostname, href: job.href }];
 ---
 
 <Base schemas={[profileGraph(portraitUrl)]}>
@@ -84,16 +89,23 @@ const span = (start: string, end: string) =>
       <div class="stack">
         {work.map((job) => (
           <article class="item">
-            <h3 class="item-title">
-              <a href={job.href} rel="noopener">
+            <div class="item-head">
+              <h3 class="item-title">
                 {job.company}
-              </a>
-              {job.urdu && (
-                <span lang="ur" dir="rtl" class="urdu">
-                  {job.urdu}
-                </span>
-              )}
-            </h3>
+                {job.urdu && (
+                  <span lang="ur" dir="rtl" class="urdu">
+                    {job.urdu}
+                  </span>
+                )}
+              </h3>
+              <p class="item-links">
+                {jobLinks(job).map((link) => (
+                  <a href={link.href} rel="noopener">
+                    {link.label}
+                  </a>
+                ))}
+              </p>
+            </div>
             <ul class="roles">
               {job.roles.map((role) => (
                 <li>
@@ -118,15 +130,6 @@ const span = (start: string, end: string) =>
                 ))}
               </ul>
             )}
-            {job.links && (
-              <p class="inline-links">
-                {job.links.map((link) => (
-                  <a href={link.href} rel="noopener">
-                    {link.label}
-                  </a>
-                ))}
-              </p>
-            )}
           </article>
         ))}
       </div>
@@ -136,21 +139,23 @@ const span = (start: string, end: string) =>
       <ul class="stack">
         {projects.map((project) => (
           <li class="item">
-            <h3 class="item-title">{project.name}</h3>
+            <div class="item-head">
+              <h3 class="item-title">{project.name}</h3>
+              <p class="item-links">
+                {project.links.map((link) => (
+                  <a
+                    href={link.href}
+                    rel="noopener"
+                    aria-label={`${project.name} ${link.label === "Live" ? "website" : "source code"}`}
+                  >
+                    {link.label === "Live" ? "Website" : "Code"}
+                  </a>
+                ))}
+              </p>
+            </div>
             <p class="tagline">{project.tagline}</p>
             <p>{project.description}</p>
-            <p class="inline-links">
-              <span class="when">{project.stack.join(", ")}</span>
-              {project.links.map((link) => (
-                <a
-                  href={link.href}
-                  rel="noopener"
-                  aria-label={`${project.name} ${link.label === "Live" ? "website" : "source code"}`}
-                >
-                  {link.label === "Live" ? "Website" : "Code"}
-                </a>
-              ))}
-            </p>
+            <p class="when">{project.stack.join(", ")}</p>
           </li>
         ))}
       </ul>
@@ -158,11 +163,14 @@ const span = (start: string, end: string) =>
 
     <Section id="research" title="Research">
       <article class="item">
-        <h3 class="item-title">
-          <a href={research.arxiv.href} rel="noopener">
-            {research.title}
-          </a>
-        </h3>
+        <div class="item-head">
+          <h3 class="item-title">{research.title}</h3>
+          <p class="item-links">
+            <a href={research.arxiv.href} rel="noopener">
+              arXiv
+            </a>
+          </p>
+        </div>
         <p class="when">
           With Sharanya Mukherjee and Dr. R. Kannadasan · {research.venue} ·
           {research.arxiv.id}
@@ -282,7 +290,7 @@ const span = (start: string, end: string) =>
     align-items: center;
     gap: 0.75rem;
     margin-top: 0.875rem;
-    font-size: 1rem;
+    font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem);
     font-style: italic;
     color: var(--quiet);
   }
@@ -325,7 +333,7 @@ const span = (start: string, end: string) =>
 
   .links a {
     display: inline-block;
-    padding-block: 0.25rem;
+    padding-block: 0.5rem;
   }
 
   .portrait {
@@ -400,11 +408,6 @@ const span = (start: string, end: string) =>
     color: var(--brown);
   }
 
-  .item-title a {
-    color: inherit;
-    text-decoration-color: color-mix(in oklab, var(--brown) 35%, transparent);
-  }
-
   .urdu {
     margin-left: 0.5rem;
     font-size: 0.85em;
@@ -458,16 +461,26 @@ const span = (start: string, end: string) =>
     background: var(--brown);
   }
 
-  .inline-links {
+  /* The title on the left and its links on the right, above the dates, so
+     the right edge always holds the details. */
+  .item-head {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.125rem 1rem;
+    justify-content: space-between;
+    gap: 0.125rem 1.5rem;
   }
 
-  .aside {
-    font-style: italic;
-    color: var(--quiet);
+  .item-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.25rem;
+  }
+
+  /* A taller hit area for thumbs, without moving the line. */
+  .item-links a {
+    padding-block: 0.5rem;
+    margin-block: -0.5rem;
   }
 
   .list {
@@ -487,7 +500,11 @@ const span = (start: string, end: string) =>
     color: var(--ink);
   }
 
+  /* The last thing to do on the page, so it reads a step up. */
   .email {
+    margin-top: 1rem;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-weight: 600;
     overflow-wrap: anywhere;
   }
 </style>

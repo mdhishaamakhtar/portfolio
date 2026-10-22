@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Colophon from "../components/Colophon.astro";
 import { PERSON } from "../consts";
 ---
 
@@ -8,6 +9,7 @@ import { PERSON } from "../consts";
   description="This page doesn’t exist. Head back to the start of hishaam.dev."
   noindex
 >
+  <p class="home">{PERSON.name}</p>
   <main id="main" class="missing">
     <h1>This page isn’t here.</h1>
     <p>
@@ -18,14 +20,21 @@ import { PERSON } from "../consts";
       <a href="/">Back to the start</a>
     </p>
   </main>
+  <Colophon />
 </Base>
 
 <style>
+  .home {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-weight: 600;
+    color: var(--brown);
+  }
+
   .missing {
     display: grid;
     gap: 1rem;
-    max-width: 34rem;
-    padding-block: clamp(2rem, 10vw, 6rem);
+    max-width: var(--measure);
+    padding-block: clamp(3rem, 12vw, 7rem) 0;
   }
 
   h1 {
@@ -33,5 +42,6 @@ import { PERSON } from "../consts";
     line-height: 1.05;
     font-weight: 600;
     letter-spacing: -0.02em;
+    color: var(--brown);
   }
 </style>

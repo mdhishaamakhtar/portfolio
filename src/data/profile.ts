@@ -122,8 +122,8 @@ export const work: Job[] = [
       },
     ],
     highlights: [
-      "Led the design of a multi-tenant architecture, so teams and business lines run their own campaigns on shared, governed building blocks.",
       "Cut the Journeys micro-batch window from an hour to five minutes.",
+      "Led the design of a multi-tenant architecture, so teams and business lines run their own campaigns on shared, governed building blocks.",
       "Made personalised campaigns cheaper by deduplicating CDP attributes over Iceberg, removing redundant Spark joins, and tuned Apache Pinot to use far less memory and CPU.",
       "Moved segments and channel analytics from batch to real time, with frequency capping, Trino failover and indexed event search.",
       "Built real-time stock alerts for Feed and Stories, the Autochartist integration, and portfolio-aware MF Prime recommendations that go out the moment a user acts.",

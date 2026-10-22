@@ -20,7 +20,7 @@ export const GET: APIRoute = () => {
     "",
     "## Harf Studios",
     "",
-    `- [Harf Studios](${HARF.url}): Co-founded with ${HARF.cofounder} in ${HARF.founded}. Short videos, song lyrics read line by line, and Dars, Volume One, a first book of Urdu.`,
+    `- [Harf Studios](${HARF.url}): Co-founded with ${HARF.cofounder} in ${HARF.founded}. Instagram carousels on Urdu words, poetry and films, song lyrics read line by line, and Dars, Volume One, a first book of Urdu.`,
     "",
     "## Work",
     "",
