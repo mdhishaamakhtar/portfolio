@@ -48,9 +48,9 @@ Components only arrange content. To change copy, edit `src/data/profile.ts` or `
 
 ## Design Rules (from the owner; do not drift)
 
-- **Simple and elegant.** One calm column (max 66rem), headings stacked above content, generous but not wasteful spacing. No decorative systems: no grids, title blocks, drafting marks, cards, mono labels.
+- **Simple and elegant.** One calm centred column exactly as wide as the reading measure (header and photo included), headings stacked above content, generous but not wasteful spacing. No decorative systems: no grids, title blocks, drafting marks, cards, mono labels.
 - **Palette:** mint `#e3fcec` background, brown `#7f5539` for the name and headings, green `#386641` for links, near-black `#2d2d2d` for text, warm grey `#66594e` for dates and quiet text. **Light only. No dark mode.**
-- **Type:** Cormorant Garamond only (500 and 600, with italics). Noto Nastaliq Urdu only for the word حرف next to Harf Studios. Body text is about 18px on phones and 21px on laptops (fluid `clamp`).
+- **Type:** Cormorant Garamond only (500 and 600, with italics). Noto Nastaliq Urdu only for the word حرف next to Harf Studios. Body text is about 19px on phones and 22.5px on laptops (fluid `clamp`), at line-height 1.5. Section headings are a clear step above entry titles, with a hairline under them.
 - **Identity:** engineer first. **No Islamic or Mughal visual motifs** (arches, gold flecks, manuscript ornament). Urdu appears only in the Harf context. Keep the bi-flag triple rule and "Bi, and proud of it." under the name.
 - **Harf** is one entry under Work, with a description. No book cover or product images. Vaniya's name links to her Instagram and does not appear in the intro line.
 - **No animation.** No entrance effects, no transitions, no smooth scrolling. The owner removed them deliberately; scrolling must stay at full frame rate.

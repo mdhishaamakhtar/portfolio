@@ -41,9 +41,11 @@
   body {
     font-family: var(--font-serif);
     font-weight: 500;
-    /* About 18px on a phone, 21px on a laptop. */
-    font-size: clamp(1.125rem, 0.95rem + 0.6vw, 1.3125rem);
-    line-height: 1.6;
+    /* About 19px on a phone, 22.5px on a laptop. Cormorant's small
+       x-height reads faint any smaller; the tighter leading keeps each
+       line the same height as before, so the page is no longer. */
+    font-size: clamp(1.1875rem, 1rem + 0.65vw, 1.40625rem);
+    line-height: 1.5;
     color: var(--ink);
     background-color: var(--bg);
     font-kerning: normal;
