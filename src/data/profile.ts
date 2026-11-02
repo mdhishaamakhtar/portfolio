@@ -145,9 +145,9 @@ export const work: Job[] = [
 export const projects: Project[] = [
   {
     name: "Hatch",
-    tagline: "An email scheduler that doesn’t lose mail",
+    tagline: "Schedule an email for years from now",
     description:
-      "Schedule an email for an hour from now or years from now, with at-least-once delivery. A timer-wheel scheduler sharded across replicas drops each email onto Kafka when it falls due. Failed sends climb three retry tiers, and a reconciliation job recovers anything a crash left behind.",
+      "Tell Hatch to send an email an hour from now or years from now, and it gets sent, even if a server crashes along the way. Failed sends are retried automatically. It’s six small services in Go, built to show how a system like this stays reliable.",
     stack: ["Go", "Kafka", "PostgreSQL", "Redis", "Kubernetes"],
     links: [
       {
@@ -159,9 +159,9 @@ export const projects: Project[] = [
   },
   {
     name: "Hermes",
-    tagline: "Live quizzes, run like a broadcast",
+    tagline: "Live quizzes for a room full of people",
     description:
-      "A real-time quiz and polling platform. The big screen runs apart from the host’s controller, players join with a QR code, and the lobby, answers and standings update live over WebSockets. It has polls, speed scoring, rehearsals and a review of how the room did, and the player’s screen works with a screen reader.",
+      "Run a live quiz or poll for a classroom, a team or a trivia night. The questions go up on the big screen, everyone answers from their phone, and the scores update as they play. Afterwards, you can see which question beat the room.",
     stack: ["Spring Boot", "PostgreSQL", "Redis", "RabbitMQ", "Next.js"],
     links: [
       { label: "Live", href: "https://hermes.hishaam.dev" },
@@ -170,9 +170,9 @@ export const projects: Project[] = [
   },
   {
     name: "Namastay",
-    tagline: "Swipe through India, get your trip",
+    tagline: "Plan your first trip to India by swiping",
     description:
-      "A free trip planner for first-time visitors to India. Swipe through places, food and experiences, and it turns what you like into a realistic day-by-day route, backed by honest guides to 68 places. Written in F# on both the server and the browser.",
+      "Swipe through places, food and experiences, keep what you like, and Namastay turns it into a day-by-day trip, with honest guides to 68 places. It’s free, and written in F# from the server to the browser.",
     stack: ["F#", "ASP.NET Core", "Fable", "React", "PostgreSQL"],
     links: [
       { label: "Live", href: "https://namastay.hishaam.dev" },
@@ -181,9 +181,9 @@ export const projects: Project[] = [
   },
   {
     name: "Iris",
-    tagline: "A trail of links between any two Wikipedia pages",
+    tagline: "How are any two Wikipedia pages connected?",
     description:
-      "Give it two pages, say Banana and Shah Rukh Khan, and watch a bidirectional search grow from both ends until they meet. Each step quotes the sentence that links one article to the next, and every route has a share link. Redis holds the search state.",
+      "Give it two Wikipedia pages, say Banana and Shah Rukh Khan, and it finds a chain of links from one to the other. You watch it search from both ends at once, and each step shows the sentence that makes the connection.",
     stack: ["Python", "Flask", "Celery", "Redis", "D3.js"],
     links: [
       { label: "Live", href: "https://iris.hishaam.dev" },
@@ -192,9 +192,9 @@ export const projects: Project[] = [
   },
   {
     name: "Placeholder",
-    tagline: "Short links for links, code and text",
+    tagline: "A short link for anything you paste",
     description:
-      "Paste a URL, code or notes and get a short link back. It’s a system design showcase in Kotlin: three cache layers, visits counted exactly once through Kafka, and failure experiments. On one laptop, three servers handled 19,500 redirects a second, and no request failed with Redis, Kafka or Postgres cut off.",
+      "Paste a link, some code or a note and get a short link to share. Code opens with proper colours, and you can see how many people visited. I built it to show how this holds up under load: on one laptop, it served 19,500 redirects a second.",
     stack: ["Kotlin", "Ktor", "Kobweb", "PostgreSQL", "Redis", "Kafka"],
     links: [
       { label: "Live", href: "https://placeholder.hishaam.dev" },
@@ -203,9 +203,9 @@ export const projects: Project[] = [
   },
   {
     name: "Nexia",
-    tagline: "A digital slambook for your people",
+    tagline: "A slambook for the people in your life",
     description:
-      "Keep the details about friends and family you’d otherwise forget, like favourite songs, food quirks and old memories, then ask things like “who hates mushrooms?”. The assistant answers from your own notes, and asks before it changes anything.",
+      "Save the little things about friends and family that you’d otherwise forget: favourite songs, food quirks, old memories. Later, just ask something like “who hates mushrooms?”, and it answers from your own notes.",
     stack: ["Next.js", "Hono", "pgvector", "Vercel AI SDK"],
     links: [
       { label: "Live", href: "https://nexia.hishaam.dev" },
@@ -214,9 +214,9 @@ export const projects: Project[] = [
   },
   {
     name: "Stochastick",
-    tagline: "Flappy Bird, played on real stock charts",
+    tagline: "Flappy Bird on real stock charts",
     description:
-      "Pick an NSE stock and a timeframe, and its real price history becomes the level: every candle is a pair of pipes. Crash, and it tells you the date that got you and how the price moved over your run. Fully static, with the market data shipped alongside.",
+      "Flappy Bird, except the level is a real stock chart. Pick an Indian stock and a timeframe, and every candle becomes a pair of pipes to fly through. When you crash, it shows you the real date that got you.",
     stack: ["Svelte", "TypeScript", "WebGL", "Vite"],
     links: [
       { label: "Live", href: "https://stochastick.hishaam.dev" },
@@ -225,9 +225,9 @@ export const projects: Project[] = [
   },
   {
     name: "java2go",
-    tagline: "Go, explained in Java",
+    tagline: "Learn Go if you already know Java",
     description:
-      "A guide to Go for people who already know Java. Thirty-one sections, each starting from the Java you know, with idiomatic Go beside it and why Go made a different choice.",
+      "A guide to Go for people who already know Java. Each of the 31 sections starts from the Java you know, shows the Go version beside it, and explains why Go does it differently.",
     stack: ["Go", "Java"],
     links: [
       { label: "Live", href: "https://java2go.hishaam.dev" },
@@ -236,35 +236,14 @@ export const projects: Project[] = [
   },
   {
     name: "Jury Duty",
-    tagline: "Many hands, one dataset, no collisions",
+    tagline: "Label one dataset as a team",
     description:
-      "A labelling engine for teams annotating one dataset with several raters. It hands out items without collisions and stores every label in Postgres, ready for inter-rater reliability and bias analysis.",
+      "When several people need to label the same dataset, Jury Duty hands out items without collisions, then saves every label so you can check how far they agree.",
     stack: ["SvelteKit", "Supabase", "PostgreSQL"],
     links: [
       { label: "Live", href: "https://juryduty.hishaam.dev" },
       { label: "Code", href: "https://github.com/mdhishaamakhtar/jury-duty" },
     ],
-  },
-  {
-    name: "Sociocredz",
-    tagline: "Give away the points you’ll never spend",
-    description:
-      "Donate unused loyalty points to NGOs. Built in 24 hours at Access Denied 2.0, where it won.",
-    stack: ["Node.js"],
-    links: [
-      {
-        label: "Code",
-        href: "https://github.com/TeamRekursion/sociocredz-backend",
-      },
-    ],
-  },
-  {
-    name: "Keats",
-    tagline: "A reading club in your pocket",
-    description:
-      "An Android app for reading together: clubs, shared annotations, and discussions pinned to the page you’re on.",
-    stack: ["Kotlin", "Android", "Firebase"],
-    links: [{ label: "Code", href: "https://github.com/GDGVIT/keats-android" }],
   },
 ];
 
