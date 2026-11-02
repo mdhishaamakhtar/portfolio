@@ -191,6 +191,17 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: "Jury Duty",
+    tagline: "Find out if your labels can be trusted",
+    description:
+      "Research and machine learning often need people to label thousands of posts by hand, and a spreadsheet falls apart fast. Jury Duty gives each rater one post at a time, then shows how far they agree. A research project on quitting smoking used it for more than 12,000 judgements from 12 raters.",
+    stack: ["SvelteKit", "Supabase", "PostgreSQL"],
+    links: [
+      { label: "Live", href: "https://juryduty.hishaam.dev/demo" },
+      { label: "Code", href: "https://github.com/mdhishaamakhtar/jury-duty" },
+    ],
+  },
+  {
     name: "Placeholder",
     tagline: "A short link for anything you paste",
     description:
@@ -232,17 +243,6 @@ export const projects: Project[] = [
     links: [
       { label: "Live", href: "https://java2go.hishaam.dev" },
       { label: "Code", href: "https://github.com/mdhishaamakhtar/java2go" },
-    ],
-  },
-  {
-    name: "Jury Duty",
-    tagline: "Label one dataset as a team",
-    description:
-      "When several people need to label the same dataset, Jury Duty hands out items without collisions, then saves every label so you can check how far they agree.",
-    stack: ["SvelteKit", "Supabase", "PostgreSQL"],
-    links: [
-      { label: "Live", href: "https://juryduty.hishaam.dev" },
-      { label: "Code", href: "https://github.com/mdhishaamakhtar/jury-duty" },
     ],
   },
 ];
