@@ -43,7 +43,7 @@ describe("projects", () => {
       expect(project.links.length, project.name).toBeGreaterThan(0);
       for (const link of project.links) {
         expect(isHttps(link.href), link.href).toBe(true);
-        expect(["Live", "Code"]).toContain(link.label);
+        expect(["Live", "Design", "Code"]).toContain(link.label);
       }
     }
   });

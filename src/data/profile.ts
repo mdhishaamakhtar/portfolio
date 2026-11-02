@@ -150,6 +150,10 @@ export const projects: Project[] = [
       "Schedule an email for an hour from now or years from now, with at-least-once delivery. A timer-wheel scheduler sharded across replicas drops each email onto Kafka when it falls due. Failed sends climb three retry tiers, and a reconciliation job recovers anything a crash left behind.",
     stack: ["Go", "Kafka", "PostgreSQL", "Redis", "Kubernetes"],
     links: [
+      {
+        label: "Design",
+        href: "https://ruby-spectacles-2bc.notion.site/Hatch-34123f950a298115a7cec9d05a4d99f4",
+      },
       { label: "Code", href: "https://github.com/mdhishaamakhtar/hatch" },
     ],
   },
@@ -157,11 +161,44 @@ export const projects: Project[] = [
     name: "Hermes",
     tagline: "Live quizzes, run like a broadcast",
     description:
-      "A real-time quiz and polling platform. Organisers build quizzes and run sessions question by question; players join with a code, and the lobby, answers and results update live over WebSockets.",
+      "A real-time quiz and polling platform. The big screen runs apart from the host’s controller, players join with a QR code, and the lobby, answers and standings update live over WebSockets. It has polls, speed scoring, rehearsals and a review of how the room did, and the player’s screen works with a screen reader.",
     stack: ["Spring Boot", "PostgreSQL", "Redis", "RabbitMQ", "Next.js"],
     links: [
       { label: "Live", href: "https://hermes.hishaam.dev" },
       { label: "Code", href: "https://github.com/mdhishaamakhtar/hermes" },
+    ],
+  },
+  {
+    name: "Namastay",
+    tagline: "Swipe through India, get your trip",
+    description:
+      "A free trip planner for first-time visitors to India. Swipe through places, food and experiences, and it turns what you like into a realistic day-by-day route, backed by honest guides to 68 places. Written in F# on both the server and the browser.",
+    stack: ["F#", "ASP.NET Core", "Fable", "React", "PostgreSQL"],
+    links: [
+      { label: "Live", href: "https://namastay.hishaam.dev" },
+      { label: "Code", href: "https://github.com/mdhishaamakhtar/namastay" },
+    ],
+  },
+  {
+    name: "Iris",
+    tagline: "A trail of links between any two Wikipedia pages",
+    description:
+      "Give it two pages, say Banana and Shah Rukh Khan, and watch a bidirectional search grow from both ends until they meet. Each step quotes the sentence that links one article to the next, and every route has a share link. Redis holds the search state.",
+    stack: ["Python", "Flask", "Celery", "Redis", "D3.js"],
+    links: [
+      { label: "Live", href: "https://iris.hishaam.dev" },
+      { label: "Code", href: "https://github.com/GDGVIT/iris" },
+    ],
+  },
+  {
+    name: "Placeholder",
+    tagline: "Short links for links, code and text",
+    description:
+      "Paste a URL, code or notes and get a short link back. It’s a system design showcase in Kotlin: three cache layers, visits counted exactly once through Kafka, and failure experiments. On one laptop, three servers handled 19,500 redirects a second, and no request failed with Redis, Kafka or Postgres cut off.",
+    stack: ["Kotlin", "Ktor", "Kobweb", "PostgreSQL", "Redis", "Kafka"],
+    links: [
+      { label: "Live", href: "https://placeholder.hishaam.dev" },
+      { label: "Code", href: "https://github.com/mdhishaamakhtar/placeholder" },
     ],
   },
   {
@@ -179,33 +216,11 @@ export const projects: Project[] = [
     name: "Stochastick",
     tagline: "Flappy Bird, played on real stock charts",
     description:
-      "Pick an NSE stock and a timeframe, and its real price history becomes the level: every candle is a pair of pipes. Crash, and it tells you the date and price that got you. Fully static, with the market data shipped alongside.",
-    stack: ["TypeScript", "Canvas", "Vite"],
+      "Pick an NSE stock and a timeframe, and its real price history becomes the level: every candle is a pair of pipes. Crash, and it tells you the date that got you and how the price moved over your run. Fully static, with the market data shipped alongside.",
+    stack: ["Svelte", "TypeScript", "WebGL", "Vite"],
     links: [
       { label: "Live", href: "https://stochastick.hishaam.dev" },
       { label: "Code", href: "https://github.com/mdhishaamakhtar/stochastick" },
-    ],
-  },
-  {
-    name: "Iris",
-    tagline: "The shortest path between two Wikipedia pages",
-    description:
-      "Give it two pages, say Banana and Shah Rukh Khan, and it finds the trail of links between them. A bidirectional search meets in the middle, Redis holds the state, and the path is drawn as a graph you can drag around.",
-    stack: ["Python", "Flask", "Celery", "Redis", "D3.js"],
-    links: [
-      { label: "Live", href: "https://iris.hishaam.dev" },
-      { label: "Code", href: "https://github.com/GDGVIT/iris" },
-    ],
-  },
-  {
-    name: "Jury Duty",
-    tagline: "Many hands, one dataset, no collisions",
-    description:
-      "A labelling engine for teams annotating one dataset with several raters. It hands out items without collisions and stores every label in Postgres, ready for inter-rater reliability and bias analysis.",
-    stack: ["SvelteKit", "Supabase", "PostgreSQL"],
-    links: [
-      { label: "Live", href: "https://juryduty.hishaam.dev" },
-      { label: "Code", href: "https://github.com/mdhishaamakhtar/jury-duty" },
     ],
   },
   {
@@ -217,6 +232,17 @@ export const projects: Project[] = [
     links: [
       { label: "Live", href: "https://java2go.hishaam.dev" },
       { label: "Code", href: "https://github.com/mdhishaamakhtar/java2go" },
+    ],
+  },
+  {
+    name: "Jury Duty",
+    tagline: "Many hands, one dataset, no collisions",
+    description:
+      "A labelling engine for teams annotating one dataset with several raters. It hands out items without collisions and stores every label in Postgres, ready for inter-rater reliability and bias analysis.",
+    stack: ["SvelteKit", "Supabase", "PostgreSQL"],
+    links: [
+      { label: "Live", href: "https://juryduty.hishaam.dev" },
+      { label: "Code", href: "https://github.com/mdhishaamakhtar/jury-duty" },
     ],
   },
   {

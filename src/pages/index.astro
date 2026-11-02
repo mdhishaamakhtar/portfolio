@@ -36,6 +36,13 @@ const span = (start: string, end: string) =>
 // links points at the company by its domain.
 const jobLinks = (job: (typeof work)[number]) =>
   job.links ?? [{ label: new URL(job.href).hostname, href: job.href }];
+
+// What each project link reads as, and how a screen reader names it.
+const projectLinks: Record<string, { text: string; name: string }> = {
+  Live: { text: "Website", name: "website" },
+  Design: { text: "Design", name: "design document" },
+  Code: { text: "Code", name: "source code" },
+};
 ---
 
 <Base schemas={[profileGraph(portraitUrl)]}>
@@ -146,9 +153,9 @@ const jobLinks = (job: (typeof work)[number]) =>
                   <a
                     href={link.href}
                     rel="noopener"
-                    aria-label={`${project.name} ${link.label === "Live" ? "website" : "source code"}`}
+                    aria-label={`${project.name} ${projectLinks[link.label].name}`}
                   >
-                    {link.label === "Live" ? "Website" : "Code"}
+                    {projectLinks[link.label].text}
                   </a>
                 ))}
               </p>
