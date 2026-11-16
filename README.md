@@ -8,7 +8,7 @@
 
 The personal site of Md Hishaam Akhtar: backend engineer at Groww and co-founder of [Harf Studios](https://harfstudios.fun).
 
-One page, on mint, set in Cormorant Garamond: who he is, the work at Groww and Harf, projects, research, writing, and how to reach him. Live at **[hishaam.dev](https://hishaam.dev)**.
+One page, on mint, with headings in Cormorant Garamond and body text in Ysabeau: who he is, his education, the work at Groww and Harf, projects, research, writing, and how to reach him. Live at **[hishaam.dev](https://hishaam.dev)**.
 
 ## What It Does
 
@@ -59,7 +59,7 @@ A pre-commit hook runs `npm run quality`.
 
 All of the copy lives in two files:
 
-- `src/data/profile.ts`: intro, about, work, projects, research, writing, recognition, education
+- `src/data/profile.ts`: intro, about, education, work, projects, research, writing, certifications, test scores, recognition
 - `src/consts.ts`: name, title, description, links and the social-card alt text
 
 Components only arrange it. The tests check the data too: every link is https, project names are unique, and the two lines in the About section stay word for word.
@@ -79,5 +79,5 @@ Every push to `master` runs [`.github/workflows/deploy.yml`](./.github/workflows
 - Md Hishaam Akhtar
 
 <p align="center">
-  Built on mint, in Cormorant, with the bi flag under the name.
+  Built on mint, in Cormorant and Ysabeau, with the bi flag under the name.
 </p>
