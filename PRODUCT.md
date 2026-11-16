@@ -33,8 +33,8 @@ An engineer who builds high-scale backend systems by day and, with Vaniya, is ma
 ## Brand Commitments
 
 - The pastel mint green (#e3fcec family, with the deep green #386641) is his colour and must stay the mainstay of the palette.
-- He likes the Cormorant Garamond serif voice and wants to keep its spirit.
-- Simple and elegant, like the original site: one calm column, no decorative systems. He rejected a Mughal album-page direction ("no Islamic/Mughal motifs") and an engineering-pad direction ("too technical, too much going on").
+- He likes the Cormorant Garamond serif voice and wants to keep its spirit. It sets the headings and names; body text is in a sans (Ysabeau).
+- Simple and elegant, like the original site: calm, text-led, no decorative systems. On a wide screen it is a rail, a body column and a notes column; on a phone, one column. He rejected a Mughal album-page direction ("no Islamic/Mughal motifs") and an engineering-pad direction ("too technical, too much going on").
 - Light mint only. No dark mode.
 - Urdu appears only in the Harf context. Vaniya Adeeb is credited in the Harf entry, not in his intro line.
 - No book cover or product photo: it's his site, and Harf is one entry under Work.
@@ -50,7 +50,7 @@ An engineer who builds high-scale backend systems by day and, with Vaniya, is ma
 - Work: Groww (SDE 2 since Apr 2025, SDE 1 from Jun 2023, intern from Jan 2022), Trademarkia (consultant, 2021)
 - Harf Studios: harfstudios.fun, co-founded with Vaniya, established 2026 in India. Carousels on Urdu words, poetry and films (@harf.studios on Instagram, about 70k followers), the book _Dars, Volume One_ (48-page A5 first book of Urdu, ₹299), and line-by-line readings of song lyrics at /lyrics.
 - Research: an arXiv paper (2507.14543) on real-time ASL captioning in video meetings, presented at ICCMDE 2021.
-- Projects: Hatch, Nexia, Iris, Hermes, Jury Duty, java2go, Sociocredz, Keats
+- Projects: Hatch, Hermes, Namastay, Iris, Jury Duty, Placeholder, Nexia, Stochastick, java2go
 - Hackathons, a Udemy course (15,000+ learners), three articles, certifications, an IELTS 8.5 score, and a résumé on Google Drive
 - Not available: the book's author credit or launch date. Do not invent either.
 

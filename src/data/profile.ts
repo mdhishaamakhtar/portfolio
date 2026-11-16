@@ -55,8 +55,16 @@ export interface Credit {
   href?: string;
 }
 
+export interface Score {
+  title: string;
+  /** The result, as a sentence. */
+  result: string;
+  year: string;
+  href: string;
+}
+
 export const hero = {
-  lede: "I build backend systems at Groww, and I co-founded Harf Studios to make Urdu fun for everyone.",
+  lede: "I’m a backend engineer at Groww, and co-founder of Harf Studios, where we teach Urdu from the letters up.",
 };
 
 export const credo = {
@@ -81,7 +89,7 @@ export const work: Job[] = [
       label: "Vaniya Adeeb",
       href: "https://www.instagram.com/vaniyaadeeb/",
     },
-    roles: [{ title: "Co-founder", start: "2026", end: "now" }],
+    roles: [{ title: "Co-Founder", start: "2026", end: "now" }],
     highlights: [
       "An Instagram page that about seventy thousand people follow, with carousels on Urdu words, poetry, films and more.",
       "Song lyrics read properly, line by line, in Urdu, Devanagari and Roman script.",
@@ -123,10 +131,11 @@ export const work: Job[] = [
     ],
     highlights: [
       "Cut the Journeys micro-batch window from an hour to five minutes.",
+      "Built portfolio-aware MF Prime recommendations that go out the moment a user acts. It now sends around two million of them a day.",
       "Led the design of a multi-tenant architecture, so teams and business lines run their own campaigns on shared, governed building blocks.",
       "Made personalised campaigns cheaper by deduplicating CDP attributes over Iceberg, removing redundant Spark joins, and tuned Apache Pinot to use far less memory and CPU.",
       "Moved segments and channel analytics from batch to real time, with frequency capping, Trino failover and indexed event search.",
-      "Built real-time stock alerts for Feed and Stories, the Autochartist integration, and portfolio-aware MF Prime recommendations that go out the moment a user acts.",
+      "Built real-time stock alerts for Feed and Stories, and the Autochartist integration.",
       "Earlier, worked on an insurance product that was never released, including its payment workflows on Temporal.",
     ],
   },
@@ -288,15 +297,15 @@ export const recognition: Credit[] = [
       "Live translation for Groww’s support chat, so people can ask for help in their own language.",
   },
   {
-    title: "Access Denied 2.0, winner",
+    title: "Access Denied 2.0, Winner",
     detail: "Sociocredz, built in a 24-hour sprint.",
   },
   {
-    title: "VIT Hack, finalist",
+    title: "VIT Hack, Finalist",
     detail: "A healthcare assistant for Flippr’s sponsored track.",
   },
   {
-    title: "Udemy instructor",
+    title: "Udemy Instructor",
     detail:
       "A hands-on Node.js course that more than 15,000 people have taken.",
   },
@@ -317,7 +326,7 @@ export const education = {
   grade: "CGPA 9.01 / 10",
 };
 
-export const credentials: Credit[] = [
+export const certifications: Credit[] = [
   {
     title: "Machine Learning Specialization",
     detail: "DeepLearning.AI, 2025",
@@ -338,9 +347,14 @@ export const credentials: Credit[] = [
     detail: "Stanford Online, 2020",
     href: "https://www.coursera.org/account/accomplishments/certificate/FT2N7RKQMSWN",
   },
+];
+
+export const scores: Score[] = [
   {
-    title: "IELTS Academic, band 8.5",
-    detail: "2025 · Listening 9, Reading 9, Writing 7.5, Speaking 8",
+    title: "IELTS Academic",
+    result:
+      "Overall band 8.5, with Listening 9, Reading 9, Writing 7.5 and Speaking 8.",
+    year: "2025",
     href: "https://drive.google.com/file/d/1WlR7qXTAP8WDSj-0tZfEupfyH8asuzB5/view?usp=sharing",
   },
 ];

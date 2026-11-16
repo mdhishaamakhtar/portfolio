@@ -40,6 +40,30 @@ export default defineConfig({
       fallbacks: ["Georgia", "serif"],
     },
     {
+      // Body text (About, work, projects, lists) is set in Ysabeau Office, the
+      // sans that Cormorant's designer drew on the same Garamond skeleton,
+      // so the two faces share their proportions.
+      provider: fontsource,
+      name: "Ysabeau Office",
+      cssVariable: "--font-ysabeau",
+      weights: [400, 600],
+      styles: ["normal"],
+      subsets: ["latin", "latin-ext"],
+      fallbacks: ["system-ui", "sans-serif"],
+    },
+    {
+      // One line of body text is italic: the quoted line in About. It gets
+      // its own entry so the build fetches the 400 italic alone, and not a
+      // 600 italic that nothing uses.
+      provider: fontsource,
+      name: "Ysabeau Office",
+      cssVariable: "--font-ysabeau-italic",
+      weights: [400],
+      styles: ["italic"],
+      subsets: ["latin"],
+      fallbacks: ["system-ui", "sans-serif"],
+    },
+    {
       // One Urdu word appears on the page, حرف, beside Harf Studios. Google
       // builds a font holding only its letters (a few KB instead of 155),
       // which is preloaded and set to block, so the word never flashes in a

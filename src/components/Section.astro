@@ -1,7 +1,8 @@
 ---
 /**
- * A section: its name stacked above the content. The content keeps to a
- * reading measure, so lines stay comfortable on wide screens.
+ * A section: a rule across the page, its name in the rail on the left and
+ * its content beside it. The name stays in view while its section scrolls
+ * past. On a small screen the name sits above the content.
  */
 interface Props {
   id: string;
@@ -12,8 +13,13 @@ const { id, title } = Astro.props;
 const headingId = `${id}-title`;
 ---
 
-<section id={id} class="section" aria-labelledby={headingId}>
-  <h2 id={headingId} class="title">
+<section
+  id={id}
+  class="section frame"
+  aria-labelledby={headingId}
+  tabindex="-1"
+>
+  <h2 id={headingId} class="title serif">
     {title}
   </h2>
   <div class="content">
@@ -23,24 +29,37 @@ const headingId = `${id}-title`;
 
 <style>
   .section {
-    padding-top: clamp(3.5rem, 9vw, 5.5rem);
+    margin-top: clamp(3.5rem, 8vw, 6rem);
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--hairline);
   }
 
-  /* Italic, so a section's name is a different voice from the upright
-     entry titles beneath it as well as a step larger, with a hairline so
-     a new section reads as one while scrolling. */
+  /* A section takes focus when the list at the top jumps to it, so the
+     next Tab continues from here. It is not a control, so it shows no
+     ring. */
+  .section:focus {
+    outline: none;
+  }
+
   .title {
     margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--hairline);
-    font-size: clamp(1.875rem, 5vw, 2.5rem);
+    font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.125rem);
     line-height: 1.1;
-    font-weight: 500;
     font-style: italic;
     color: var(--brown);
   }
 
-  .content {
-    max-width: var(--measure);
+  @media (min-width: 62rem) {
+    .title {
+      position: sticky;
+      top: calc(var(--bar) + 1.25rem);
+      align-self: start;
+      margin-bottom: 0;
+    }
+
+    /* The content's first line sits on the section name's baseline. */
+    .content {
+      padding-top: 0.25rem;
+    }
   }
 </style>

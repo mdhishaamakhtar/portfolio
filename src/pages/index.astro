@@ -8,13 +8,14 @@ import portrait from "../assets/portrait.png";
 import { LINKS, PERSON, SITE_URL } from "../consts";
 import {
   community,
-  credentials,
+  certifications,
   credo,
   education,
   hero,
   projects,
   recognition,
   research,
+  scores,
   work,
   writing,
 } from "../data/profile";
@@ -29,11 +30,25 @@ const links = [
   { label: "Email", href: LINKS.email },
 ];
 
+// The sections worth jumping to from the row at the top of a wide screen.
+const contents = [
+  { label: "About", href: "#about" },
+  { label: "Education", href: "#education" },
+  { label: "Work", href: "#work" },
+  { label: "Projects", href: "#projects" },
+  { label: "Research", href: "#research" },
+  { label: "Writing", href: "#writing" },
+  { label: "Contact", href: "#contact" },
+];
+
+// Hyphenated words in the introduction ("co-founder") are kept whole, so a
+// narrow column never breaks one at its hyphen. Odd parts are those words.
+const ledeParts = hero.lede.split(/(\S+-\S+)/);
+
 const span = (start: string, end: string) =>
   start === end ? start : `${start} – ${end}`;
 
-// Titles are plain brown text; links are always green. A job without its own
-// links points at the company by its domain.
+// A job without its own links points at the company by its domain.
 const jobLinks = (job: (typeof work)[number]) =>
   job.links ?? [{ label: new URL(job.href).hostname, href: job.href }];
 
@@ -46,62 +61,101 @@ const projectLinks: Record<string, { text: string; name: string }> = {
 ---
 
 <Base schemas={[profileGraph(portraitUrl)]}>
-  <header class="intro">
-    <h1 class="name">{PERSON.name}</h1>
-    <p class="pride">
-      <span class="bi" aria-hidden="true">
-        <i></i>
-        <i></i>
-        <i></i>
-      </span>
-      <span>Bi, and proud of it.</span>
-    </p>
-    <p class="lede">{hero.lede}</p>
-    <ul class="links">
-      {links.map((link) => (
+  <nav class="contents frame" aria-label="Sections">
+    <ul>
+      {contents.map((item) => (
         <li>
-          <a href={link.href} rel={link.me ? "me noopener" : undefined}>
-            {link.label}
-          </a>
+          <a href={item.href}>{item.label}</a>
         </li>
       ))}
     </ul>
+  </nav>
+
+  <header class="intro frame">
     <Image
       src={portrait}
       alt={`${PERSON.givenName} laughing, in glasses and a denim shirt, in warm afternoon light`}
-      widths={[240, 360, 480]}
-      sizes="(min-width: 34rem) 11.5rem, 6.5rem"
+      widths={[240, 360, 540]}
+      sizes="(min-width: 62rem) 16.5rem, (min-width: 40rem) 12rem, 7rem"
       loading="eager"
       fetchpriority="high"
       class="portrait"
     />
+    <div class="opening">
+      <h1 class="name serif">{PERSON.name}</h1>
+      <p class="pride serif">
+        <span class="bi" aria-hidden="true">
+          <i></i>
+          <i></i>
+          <i></i>
+        </span>
+        <span>Bi, and proud of it.</span>
+      </p>
+      <p class="lede serif">
+        {ledeParts.map((part, i) =>
+          i % 2 ? <span class="keep">{part}</span> : part,
+        )}
+      </p>
+      <ul class="links">
+        {links.map((link) => (
+          <li>
+            <a href={link.href} rel={link.me ? "me noopener" : undefined}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   </header>
 
   <main id="main">
     <Section id="about" title="About">
-      <p>
-        {credo.lead} <em class="quote">{credo.quote}</em>
-      </p>
-      {credo.body.map((paragraph) => (
-        <p>{paragraph}</p>
-      ))}
-      <p>{credo.close}</p>
+      <div class="credo">
+        <p class="lead">
+          {credo.lead} <em class="quote">{credo.quote}</em>
+        </p>
+        {credo.body.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+        <p>{credo.close}</p>
+      </div>
+    </Section>
+
+    <Section id="education" title="Education">
+      <article class="entry">
+        <h3 class="entry-name serif">{education.school}</h3>
+        <div class="notes">
+          <p>Class of {education.year}</p>
+          <p>{education.grade}</p>
+        </div>
+        <div class="body">
+          <p>{education.degree}</p>
+        </div>
+      </article>
     </Section>
 
     <Section id="work" title="Work">
-      <div class="stack">
+      <div class="entries">
         {work.map((job) => (
-          <article class="item">
-            <div class="item-head">
-              <h3 class="item-title">
-                {job.company}
-                {job.urdu && (
-                  <span lang="ur" dir="rtl" class="urdu">
-                    {job.urdu}
-                  </span>
-                )}
-              </h3>
-              <p class="item-links">
+          <article class="entry job">
+            <h3 class="entry-name serif">
+              {job.company}
+              {job.urdu && (
+                <span lang="ur" dir="rtl" class="urdu">
+                  {job.urdu}
+                </span>
+              )}
+            </h3>
+            <div class="notes">
+              <ul class="roles">
+                {job.roles.map((role) => (
+                  <li>
+                    <span class="role">{role.title}</span>
+                    <span>{span(role.start, role.end)}</span>
+                  </li>
+                ))}
+              </ul>
+              <p class="refs">
                 {jobLinks(job).map((link) => (
                   <a href={link.href} rel="noopener">
                     {link.label}
@@ -109,42 +163,39 @@ const projectLinks: Record<string, { text: string; name: string }> = {
                 ))}
               </p>
             </div>
-            <ul class="roles">
-              {job.roles.map((role) => (
-                <li>
-                  <span>{role.title}</span>
-                  <span class="when">{span(role.start, role.end)}</span>
-                </li>
-              ))}
-            </ul>
-            <p>
-              <LinkedText text={job.summary} link={job.mention} />
-            </p>
-            {job.highlights.length > 0 && (
-              <ul class="points">
-                {job.highlights.map((point) => (
-                  <li>
-                    {typeof point === "string" ? (
-                      point
-                    ) : (
-                      <LinkedText text={point.text} link={point.link} />
-                    )}
-                  </li>
-                ))}
-              </ul>
-            )}
+            <div class="body">
+              <p>
+                <LinkedText text={job.summary} link={job.mention} />
+              </p>
+              {job.highlights.length > 0 && (
+                <ul class="points">
+                  {job.highlights.map((point) => (
+                    <li>
+                      {typeof point === "string" ? (
+                        point
+                      ) : (
+                        <LinkedText text={point.text} link={point.link} />
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </article>
         ))}
       </div>
     </Section>
 
     <Section id="projects" title="Projects">
-      <ul class="stack">
+      <ul class="entries">
         {projects.map((project) => (
-          <li class="item">
-            <div class="item-head">
-              <h3 class="item-title">{project.name}</h3>
-              <p class="item-links">
+          <li class="entry">
+            <div class="entry-head">
+              <h3 class="entry-name serif">{project.name}</h3>
+              <p class="tagline serif">{project.tagline}</p>
+            </div>
+            <div class="notes">
+              <p class="refs">
                 {project.links.map((link) => (
                   <a
                     href={link.href}
@@ -155,88 +206,102 @@ const projectLinks: Record<string, { text: string; name: string }> = {
                   </a>
                 ))}
               </p>
+              <p>{project.stack.join(", ")}</p>
             </div>
-            <p class="tagline">{project.tagline}</p>
-            <p>{project.description}</p>
-            <p class="when">{project.stack.join(", ")}</p>
+            <div class="body">
+              <p>{project.description}</p>
+            </div>
           </li>
         ))}
       </ul>
     </Section>
 
     <Section id="research" title="Research">
-      <article class="item">
-        <div class="item-head">
-          <h3 class="item-title">{research.title}</h3>
-          <p class="item-links">
+      <article class="entry">
+        <h3 class="entry-name serif">{research.title}</h3>
+        <div class="notes">
+          <p class="refs">
             <a href={research.arxiv.href} rel="noopener">
-              arXiv
+              {research.arxiv.id}
             </a>
           </p>
+          <p>{research.venue}</p>
+          <p>With Sharanya Mukherjee and Dr.&nbsp;R.&nbsp;Kannadasan</p>
         </div>
-        <p class="when credits">
-          <span>With Sharanya Mukherjee and Dr.&nbsp;R.&nbsp;Kannadasan</span>
-          <span>
-            {research.venue}, {research.arxiv.id}
-          </span>
-        </p>
-        <p>{research.summary}</p>
+        <div class="body">
+          <p>{research.summary}</p>
+        </div>
       </article>
     </Section>
 
     <Section id="writing" title="Writing">
-      <ul class="list">
+      <ul class="rows">
         {writing.map((article) => (
-          <li>
-            <a href={article.href} rel="noopener">
-              {article.title}
-            </a>
-            <span>
-              {article.note} <span class="when">{article.where}</span>
-            </span>
+          <li class="row">
+            <div>
+              <a class="row-title" href={article.href} rel="noopener">
+                {article.title}
+              </a>
+              <p>{article.note}</p>
+            </div>
+            <p class="notes">{article.where}</p>
+          </li>
+        ))}
+      </ul>
+    </Section>
+
+    <Section id="certifications" title="Certifications">
+      <ul class="rows">
+        {certifications.map((item) => (
+          <li class="row">
+            <p>
+              {item.href ? (
+                <a class="row-title" href={item.href} rel="noopener">
+                  {item.title}
+                </a>
+              ) : (
+                <span class="row-title">{item.title}</span>
+              )}
+            </p>
+            <p class="notes">{item.detail}</p>
+          </li>
+        ))}
+      </ul>
+    </Section>
+
+    <Section id="scores" title="Test Scores">
+      <ul class="rows">
+        {scores.map((score) => (
+          <li class="row">
+            <div>
+              <a class="row-title" href={score.href} rel="noopener">
+                {score.title}
+              </a>
+              <p>{score.result}</p>
+            </div>
+            <p class="notes">{score.year}</p>
           </li>
         ))}
       </ul>
     </Section>
 
     <Section id="elsewhere" title="Elsewhere">
-      <ul class="list">
-        {recognition.map((item) => (
-          <li>
-            <span class="strong">{item.title}</span>
-            <span>{item.detail}</span>
-          </li>
-        ))}
-        <li>
-          <span class="strong">
-            <a href={community.href} rel="noopener">
+      <ul class="rows">
+        <li class="row">
+          <div>
+            <a class="row-title" href={community.href} rel="noopener">
               {community.title}
             </a>
-          </span>
-          <span>{community.detail}</span>
-          <span class="when">{community.when}</span>
+            <p>{community.detail}</p>
+          </div>
+          <p class="notes">{community.when}</p>
         </li>
-      </ul>
-    </Section>
-
-    <Section id="education" title="Education">
-      <ul class="list">
-        <li>
-          <span class="strong">{education.school}</span>
-          <span class="when">
-            {education.degree}, {education.year} · {education.grade}
-          </span>
-        </li>
-        {credentials.map((item) => (
-          <li>
-            {item.href ? (
-              <a href={item.href} rel="noopener">
-                {item.title}
-              </a>
-            ) : (
-              item.title
-            )}
-            <span class="when">{item.detail}</span>
+        {recognition.map((item) => (
+          <li class="row">
+            <div>
+              <p class="row-title">{item.title}</p>
+              <p>{item.detail}</p>
+            </div>
           </li>
         ))}
       </ul>
@@ -259,42 +324,255 @@ const projectLinks: Record<string, { text: string; name: string }> = {
   <Colophon />
 </Base>
 
-<style>
-  /* The name is set to the measure: one line, exactly as wide as the
-     column beneath it, at every screen size. Everything else on the page
-     is quiet so this can be the one large thing. */
-  .intro {
-    container-type: inline-size;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-      "name name"
-      "pride pride"
-      "lede photo"
-      "links links";
-    column-gap: 1.25rem;
-    align-items: center;
+<script>
+  /*
+   * Jumping to a section from the list at the top. An instant jump gives
+   * no sense of having travelled, and scrolling the whole way smears
+   * thousands of pixels of text past the reader. So the page cuts to just
+   * short of the section and eases the last stretch into place, from the
+   * direction it came. Any scroll, key or touch takes over at once, and
+   * with reduced motion it is a plain jump.
+   */
+  const GLIDE = 200;
+  const DURATION = 450;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let frame = 0;
+
+  const stop = () => {
+    cancelAnimationFrame(frame);
+    frame = 0;
+  };
+
+  for (const type of ["wheel", "touchstart", "keydown", "pointerdown"]) {
+    window.addEventListener(type, stop, { passive: true });
   }
 
+  const jump = (target: HTMLElement) => {
+    stop();
+    const root = document.documentElement;
+    const padding = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0;
+    const furthest = root.scrollHeight - window.innerHeight;
+    const top = target.getBoundingClientRect().top + window.scrollY - padding;
+    const end = Math.max(0, Math.min(furthest, Math.round(top)));
+    const distance = end - window.scrollY;
+
+    if (reduced.matches || distance === 0) {
+      window.scrollTo(0, end);
+      return;
+    }
+
+    const from =
+      end - Math.sign(distance) * Math.min(Math.abs(distance), GLIDE);
+    const began = performance.now();
+
+    // A strong ease-out: most of the distance in the first few frames,
+    // then a long, soft landing.
+    const step = (now: number) => {
+      const t = Math.min(1, Math.max(0, (now - began) / DURATION));
+      window.scrollTo(0, from + (end - from) * (1 - (1 - t) ** 5));
+      frame = t < 1 ? requestAnimationFrame(step) : 0;
+    };
+
+    window.scrollTo(0, from);
+    frame = requestAnimationFrame(step);
+  };
+
+  for (const link of document.querySelectorAll<HTMLAnchorElement>(
+    ".contents a",
+  )) {
+    link.addEventListener("click", (event) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return;
+      }
+      const target = document.getElementById(link.hash.slice(1));
+      if (!target) return;
+      event.preventDefault();
+      history.pushState(null, "", link.hash);
+      jump(target);
+      // Keyboard and screen-reader users continue from the section.
+      target.focus({ preventScroll: true });
+    });
+  }
+
+  /*
+   * Marking the section being read in the row at the top. The current
+   * section is the last one whose top has passed a line 15% down the
+   * window; at the very end of the page it is the last section, which is
+   * too short to reach that line. Observers do the watching, so nothing
+   * runs while the page scrolls.
+   */
+  const links = [
+    ...document.querySelectorAll<HTMLAnchorElement>(".contents a"),
+  ];
+  const sections = [
+    ...document.querySelectorAll<HTMLElement>("main > section"),
+  ];
+  const passed = new Set<Element>();
+  let atEnd = false;
+
+  const mark = () => {
+    let current: HTMLElement | undefined;
+    for (const section of sections) {
+      if (passed.has(section)) current = section;
+    }
+    if (atEnd) current = sections[sections.length - 1];
+    for (const link of links) {
+      if (current && link.hash === `#${current.id}`) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    }
+  };
+
+  const reader = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) passed.add(entry.target);
+        else passed.delete(entry.target);
+      }
+      mark();
+    },
+    // Everything above the line, however far up the page it is.
+    { rootMargin: "999999px 0px -85% 0px" },
+  );
+  for (const section of sections) reader.observe(section);
+
+  const colophon = document.querySelector(".colophon");
+  if (colophon) {
+    new IntersectionObserver(
+      ([entry]) => {
+        atEnd = entry.isIntersecting;
+        mark();
+      },
+      { threshold: 0.9 },
+    ).observe(colophon);
+  }
+</script>
+
+<style>
+  /* The row of sections, on the content's edge. From 62rem up it stays at
+     the top of the window, so any section is one click away from anywhere
+     on a long page, and it marks the section being read. The page fades
+     out under it instead of being cut by an edge; at the top of the page
+     that is mint on mint and shows nothing. Phones and tablets go
+     without: the owner tried a menu there and it did not belong. */
+  .contents {
+    display: none;
+  }
+
+  @media (min-width: 62rem) {
+    .contents {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: grid;
+      margin: -0.75rem calc(-1 * var(--gutter)) 0;
+      padding: 0.75rem var(--gutter);
+      background: var(--bg);
+    }
+
+    .contents::after {
+      content: "";
+      position: absolute;
+      inset: 100% 0 auto;
+      height: 1.25rem;
+      background: linear-gradient(
+        var(--bg),
+        color-mix(in srgb, var(--bg) 0%, transparent)
+      );
+      pointer-events: none;
+    }
+  }
+
+  .contents ul {
+    grid-column: -2 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.5rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .contents a {
+    display: inline-block;
+    padding-block: 0.25rem;
+    font-size: 0.9em;
+    color: var(--ink);
+    text-decoration-color: transparent;
+  }
+
+  .contents a[aria-current] {
+    color: var(--green-deep);
+    text-decoration-color: currentColor;
+  }
+
+  /* The underline arrives quickly instead of snapping on. */
+  @media (prefers-reduced-motion: no-preference) {
+    .contents a {
+      transition:
+        color 150ms ease,
+        text-decoration-color 150ms ease;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .contents a:hover {
+      color: var(--green-deep);
+      text-decoration-color: currentColor;
+    }
+  }
+
+  /* The opening: the portrait in the rail, and beside it his name, the bi
+     rule, one plain sentence about what he does, and where to find him. */
+  .intro {
+    row-gap: 1.25rem;
+    align-items: start;
+  }
+
+  @media (min-width: 62rem) {
+    .contents + .intro {
+      margin-top: 2.25rem;
+    }
+  }
+
+  .portrait {
+    width: 7rem;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: 50% 30%;
+    border-radius: 0.5rem;
+    box-shadow:
+      0 0 0 1px rgb(127 85 57 / 0.14),
+      0 18px 30px -18px rgb(84 56 38 / 0.55);
+  }
+
+  .opening {
+    container-type: inline-size;
+  }
+
+  /* The name is 7.79em wide at this weight and tracking, so on a phone it
+     fills the line and on a wide screen it stops at 4.5rem. */
   .name {
-    grid-area: name;
-    /* The name is 7.79em wide at this weight and tracking, so dividing
-       the column by a touch more fills the line with a hair to spare. */
-    font-size: calc(100cqi / 7.8);
+    font-size: min(4.5rem, 100cqi / 7.8);
+    /* At this size the M's serif sits visibly in from the edge that the
+       smaller text below starts on. Pulling the name left by the serif's
+       width puts its stem on that edge. */
+    margin-left: -0.04em;
     line-height: 1;
-    font-weight: 500;
     letter-spacing: -0.02em;
     white-space: nowrap;
     color: var(--brown);
   }
 
   .pride {
-    grid-area: pride;
     display: flex;
     align-items: center;
     gap: 0.75rem;
     margin-top: 0.75rem;
-    font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem);
+    font-size: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
+    line-height: 1.2;
     font-style: italic;
     color: var(--quiet);
   }
@@ -302,7 +580,7 @@ const projectLinks: Record<string, { text: string; name: string }> = {
   .bi {
     display: grid;
     gap: 2px;
-    width: 3.5rem;
+    width: 3.25rem;
   }
 
   .bi i {
@@ -321,20 +599,23 @@ const projectLinks: Record<string, { text: string; name: string }> = {
   }
 
   .lede {
-    grid-area: lede;
-    margin-top: 1.5rem;
-    font-size: clamp(1.3125rem, 2.8vw, 1.75rem);
+    max-width: 32ch;
+    margin-top: clamp(1.25rem, 3vw, 1.75rem);
+    font-size: clamp(1.375rem, 1.15rem + 1vw, 1.75rem);
     line-height: 1.35;
   }
 
+  .keep {
+    white-space: nowrap;
+  }
+
   .links {
-    grid-area: links;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.25rem 1.5rem;
+    gap: 0.25rem 1.75rem;
     list-style: none;
     padding: 0;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
   }
 
   .links a {
@@ -342,41 +623,86 @@ const projectLinks: Record<string, { text: string; name: string }> = {
     padding-block: 0.5rem;
   }
 
-  .portrait {
-    grid-area: photo;
-    margin-top: 1.5rem;
-    width: 6.5rem;
-    height: auto;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    object-position: 50% 30%;
-    border-radius: 0.5rem;
-    box-shadow:
-      0 0 0 1px rgb(127 85 57 / 0.14),
-      0 18px 30px -18px rgb(84 56 38 / 0.55);
-  }
-
-  /* Anything wider than a phone: the photo stands beside everything under
-     the name. Its top meets the bi rule's line and its bottom meets the
-     links, with the introduction centred in between. */
-  @media (min-width: 34rem) {
+  /* On a phone the name and the bi rule run the full width, the photo
+     stands beside the sentence, and the links run full width beneath.
+     The introduction's box steps aside so its parts can sit in the same
+     grid as the photo. */
+  @media (max-width: 39.999rem) {
     .intro {
+      container-type: inline-size;
+      grid-template-columns: minmax(0, 1fr) auto;
       grid-template-areas:
         "name name"
-        "pride photo"
+        "pride pride"
         "lede photo"
-        "links photo";
-      grid-template-rows: auto auto 1fr auto;
-      column-gap: 2.5rem;
+        "links links";
+      column-gap: 1.25rem;
+      row-gap: 0;
+      align-items: center;
+    }
+
+    .opening {
+      display: contents;
+    }
+
+    .name {
+      grid-area: name;
     }
 
     .pride {
-      margin-top: 1.5rem;
+      grid-area: pride;
     }
 
     .lede {
-      margin-top: 0;
-      max-width: 30ch;
+      grid-area: lede;
+      margin-top: 1.5rem;
+    }
+
+    .links {
+      grid-area: links;
+      margin-top: 1rem;
+    }
+
+    .portrait {
+      grid-area: photo;
+      width: 6.5rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  /* A tablet has room for the portrait beside the introduction. */
+  @media (min-width: 40rem) and (max-width: 61.999rem) {
+    .intro {
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: 2.5rem;
+      align-items: center;
+    }
+
+    .portrait {
+      order: 1;
+      width: 12rem;
+    }
+  }
+
+  @media (min-width: 62rem) {
+    .portrait {
+      width: 100%;
+    }
+
+    /* The introduction is exactly as tall as the photo. The top of the
+       name's capitals sits level with the photo's top edge, the links
+       stand on its bottom edge, and the sentence is centred in the space
+       between. */
+    .opening {
+      align-self: stretch;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      margin-top: -0.5rem;
+    }
+
+    .lede {
+      align-self: center;
+      margin-block: 1rem;
     }
 
     .links {
@@ -386,101 +712,183 @@ const projectLinks: Record<string, { text: string; name: string }> = {
     .links a {
       padding-bottom: 0;
     }
-
-    .portrait {
-      align-self: start;
-      margin-top: 1.5rem;
-      width: clamp(8.5rem, 18vw, 11.5rem);
-    }
   }
 
-  main :global(p + p) {
+  /* About and Contact are body text, so they are set in the sans like
+     everything else that is read at length. The serif is for headings,
+     names and the introduction under his name. */
+  .credo,
+  .contact {
+    max-width: 70ch;
+  }
+
+  .credo p + p,
+  .contact p + p {
     margin-top: 0.875rem;
   }
 
+  /* About opens a step up from the paragraphs that follow. */
+  .credo .lead {
+    margin-bottom: 1.125rem;
+    font-size: 1.3em;
+    line-height: 1.4;
+  }
+
+  /* The one italic line of body text; see the font entry in
+     astro.config.mjs for why it has a family of its own. */
   .quote {
+    font-family: var(--font-sans-italic);
     color: var(--brown);
   }
 
-  .stack {
-    display: grid;
-    gap: clamp(1.75rem, 4.5vw, 2.5rem);
+  /* An entry: its name and the text on the content's edge, and beside
+     them a column of notes (roles and dates, links, the stack). */
+  .entries {
     list-style: none;
     padding: 0;
   }
 
-  .item > * + * {
-    margin-top: 0.375rem;
+  .entries > * + * {
+    margin-top: clamp(1.75rem, 4vw, 2.25rem);
+    padding-top: clamp(1.75rem, 4vw, 2.25rem);
+    border-top: 1px solid var(--hairline-soft);
   }
 
-  .item-title {
-    font-size: clamp(1.25rem, 3vw, 1.5rem);
-    line-height: 1.25;
+  .entry {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "head"
+      "body"
+      "notes";
+    row-gap: 0.625rem;
+  }
+
+  /* On a phone a job's roles and dates come before its story. */
+  .entry.job {
+    grid-template-areas:
+      "head"
+      "notes"
+      "body";
+  }
+
+  .entry > :first-child {
+    grid-area: head;
+  }
+
+  .entry > .notes {
+    grid-area: notes;
+  }
+
+  .entry > .body {
+    grid-area: body;
+  }
+
+  @media (min-width: 40rem) {
+    .entry,
+    .entry.job {
+      grid-template-columns: minmax(0, 1fr) var(--notes);
+      grid-template-rows: auto 1fr;
+      grid-template-areas:
+        "head notes"
+        "body notes";
+      column-gap: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    /* The first note sits on the name's baseline. */
+    .entry > .notes {
+      padding-top: 0.5rem;
+    }
+  }
+
+  .entry-name {
+    font-size: clamp(1.5rem, 1.3rem + 0.8vw, 1.75rem);
+    line-height: 1.15;
     font-weight: 600;
     color: var(--brown);
   }
 
   .urdu {
     margin-left: 0.5rem;
-    font-size: 0.85em;
+    font-size: 0.8em;
     font-weight: 400;
   }
 
   .tagline {
+    margin-top: 0.125rem;
+    font-size: clamp(1.1875rem, 1.1rem + 0.4vw, 1.3125rem);
+    line-height: 1.3;
     font-style: italic;
-    color: var(--ink);
+  }
+
+  .body {
+    max-width: 70ch;
+  }
+
+  .notes {
+    font-size: 0.875em;
+    line-height: 1.45;
+    color: var(--quiet);
+  }
+
+  .notes > * + * {
+    margin-top: 0.5rem;
   }
 
   .roles {
+    display: grid;
+    gap: 0.5rem;
     list-style: none;
     padding: 0;
   }
 
   .roles li {
+    display: grid;
+  }
+
+  .role {
+    color: var(--ink);
+  }
+
+  .refs {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0 1rem;
+    gap: 0 1.125rem;
   }
 
-  .when {
-    font-style: italic;
-    color: var(--quiet);
+  /* A taller hit area for thumbs, without moving the line. */
+  .refs a {
+    padding-block: 0.375rem;
+    margin-block: -0.375rem;
   }
 
-  /* Who it was with, then where it appeared, each on its own line. */
-  .credits {
-    display: grid;
-  }
-
-  /* A short, fine dash in brown: lighter than a disc, closer to the
-     weight of Cormorant's strokes. */
+  /* A short, fine dash in brown rather than a disc. */
   .points {
-    list-style: none;
-    padding: 0;
     display: grid;
     gap: 0.5rem;
-    margin-top: 0.75rem;
+    margin-top: 0.875rem;
+    list-style: none;
+    padding: 0;
   }
 
   .points li {
     position: relative;
-    padding-left: 1.5rem;
+    padding-left: 1.375rem;
   }
 
   .points li::before {
     content: "";
     position: absolute;
-    left: 0.125rem;
-    top: 0.82em;
+    left: 0;
+    top: 0.78em;
     width: 0.625rem;
     height: 1px;
     background: var(--brown);
   }
 
-  /* With room in the margin, the dashes hang outside the column, so every
-     line of text on the page starts at the same edge. */
-  @media (min-width: 48rem) {
+  /* With the rail beside it, the dashes hang in the gap, so every line of
+     text starts on the content's edge. */
+  @media (min-width: 62rem) {
     .points li {
       padding-left: 0;
     }
@@ -490,56 +898,47 @@ const projectLinks: Record<string, { text: string; name: string }> = {
     }
   }
 
-  /* The title on the left and its links on the right, above the dates, so
-     the right edge always holds the details. */
-  .item-head {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 0.125rem 1.5rem;
-  }
-
-  .item-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 1.25rem;
-  }
-
-  /* A taller hit area for thumbs, without moving the line. */
-  .item-links a {
-    padding-block: 0.5rem;
-    margin-block: -0.5rem;
-  }
-
-  .list {
+  /* The shorter lists: a title and a line about it, with a note beside. */
+  .rows {
     display: grid;
-    gap: 1.125rem;
+    gap: 1.25rem;
     list-style: none;
     padding: 0;
   }
 
-  .list li {
+  .row {
     display: grid;
-    line-height: 1.4;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.125rem;
   }
 
-  .strong {
+  .row > :first-child {
+    max-width: 70ch;
+  }
+
+  @media (min-width: 40rem) {
+    .row {
+      grid-template-columns: minmax(0, 1fr) var(--notes);
+      column-gap: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .row > .notes {
+      padding-top: 0.1rem;
+    }
+  }
+
+  .row-title {
     font-weight: 600;
+  }
+
+  p.row-title,
+  span.row-title {
     color: var(--ink);
   }
 
-  /* The page opens with the name set large and closes with the address
-     set large: the one thing to do after reading. It shrinks to stay on
-     one line on a phone. */
-  .contact {
-    container-type: inline-size;
-  }
-
+  /* The address is the last thing to do on the page, so it gets a line
+     to itself, at the same size as the sentence above it. */
   .email {
-    margin-top: 1.25rem;
-    font-size: min(2.25rem, 100cqi / 15.5);
-    line-height: 1.2;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
   }
 </style>

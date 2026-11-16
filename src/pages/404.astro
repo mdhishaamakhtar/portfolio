@@ -9,9 +9,9 @@ import { PERSON } from "../consts";
   description="This page doesn’t exist. Head back to the start of hishaam.dev."
   noindex
 >
-  <p class="home">{PERSON.name}</p>
+  <p class="home serif">{PERSON.name}</p>
   <main id="main" class="missing">
-    <h1>This page isn’t here.</h1>
+    <h1 class="serif">This page isn’t here.</h1>
     <p>
       The link may be old, or the address may have a typo. Everything I’ve put
       online is linked from the first page.
@@ -33,14 +33,13 @@ import { PERSON } from "../consts";
   .missing {
     display: grid;
     gap: 1rem;
-    max-width: var(--measure);
+    max-width: 40rem;
     padding-block: clamp(3rem, 12vw, 7rem) 0;
   }
 
   h1 {
     font-size: clamp(2.5rem, 7vw, 3.5rem);
     line-height: 1.05;
-    font-weight: 500;
     letter-spacing: -0.02em;
     color: var(--brown);
   }

@@ -145,7 +145,7 @@ export async function renderSocialImage(): Promise<Buffer> {
               fontWeight: 500,
               lineHeight: 1.32,
               color: PALETTE.ink,
-              width: 545,
+              width: 520,
             },
             hero.lede,
           ),

@@ -1,9 +1,10 @@
 /** Invariants over the page's data, so a typo can't ship a broken entry. */
 import { describe, expect, test } from "vitest";
 import {
-  credentials,
+  certifications,
   projects,
   research,
+  scores,
   work,
   writing,
 } from "../src/data/profile";
@@ -61,7 +62,8 @@ describe("links elsewhere", () => {
     const hrefs = [
       research.arxiv.href,
       ...writing.map((a) => a.href),
-      ...credentials.flatMap((c) => (c.href ? [c.href] : [])),
+      ...certifications.flatMap((c) => (c.href ? [c.href] : [])),
+      ...scores.map((s) => s.href),
       ...work.flatMap((j) => [
         j.href,
         ...(j.links ?? []).map((l) => l.href),

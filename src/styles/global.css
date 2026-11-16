@@ -1,12 +1,15 @@
 @import "tailwindcss";
 
 /*
- * Simple on purpose: one column of Cormorant on Hishaam's mint, brown for
- * the name and headings, green for links, and nothing else competing with
- * the words.
+ * Headings in serif, body in sans, on Hishaam's mint. Cormorant Garamond
+ * sets the name, the introduction under it, and the names of sections,
+ * jobs and projects. Ysabeau, the sans its designer drew on the same
+ * Garamond skeleton, sets everything that is read at length.
  */
 @theme {
   --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-ysabeau), system-ui, sans-serif;
+  --font-sans-italic: var(--font-ysabeau-italic), var(--font-sans);
   --font-urdu: var(--font-nastaliq), serif;
 }
 
@@ -21,14 +24,32 @@
   --brown: #7f5539;
   --green: #386641;
   --green-deep: #24502f;
-  --hairline: rgb(127 85 57 / 0.22);
-
-  /* Running text stops here, about 75 characters of Cormorant a line. */
-  --measure: 68ch;
+  --hairline: rgb(127 85 57 / 0.28);
+  --hairline-soft: rgb(127 85 57 / 0.14);
 
   --bi-1: #d60270;
   --bi-2: #9b4f96;
   --bi-3: #0038a8;
+
+  /* The page's three columns. The rail holds the portrait and each
+     section's name; the notes column holds dates, stacks and links. */
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --rail: clamp(12rem, 21vw, 16.5rem);
+  --gap: clamp(2rem, 4vw, 3.5rem);
+  --notes: 13.5rem;
+
+  /* The space above the page's first line. */
+  --page-top: clamp(1.5rem, 4vw, 2.5rem);
+
+  /* The height of the row of sections that stays at the top of the
+     window on a wide screen. Section names and jumps stop below it. */
+  --bar: 0rem;
+}
+
+@media (min-width: 62rem) {
+  :root {
+    --bar: 3.75rem;
+  }
 }
 
 @layer base {
@@ -36,22 +57,20 @@
     background-color: var(--bg);
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--bar) + 1.25rem);
   }
 
   body {
-    font-family: var(--font-serif);
-    font-weight: 500;
-    /* About 19px on a phone, 22.5px on a laptop. Cormorant's small
-       x-height reads faint any smaller; the tighter leading keeps each
-       line the same height as before, so the page is no longer. */
-    font-size: clamp(1.1875rem, 1rem + 0.65vw, 1.40625rem);
-    line-height: 1.5;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    /* Ysabeau keeps Garamond's small x-height, so it is set a size up
+       from what a grotesque would need: about 18px on a phone, 20px on a
+       laptop. */
+    font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);
+    line-height: 1.55;
     color: var(--ink);
     background-color: var(--bg);
     font-kerning: normal;
-    font-feature-settings:
-      "onum" 1,
-      "kern" 1;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: color-mix(
       in oklab,
@@ -125,5 +144,29 @@
 
   .skip-link:focus-visible {
     transform: translateY(0);
+  }
+
+  /* Headings and names. Old-style figures sit better in Cormorant's
+     lowercase. */
+  .serif {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-feature-settings:
+      "onum" 1,
+      "kern" 1;
+  }
+
+  /* One column on a small screen. With room, a rail on the left and the
+     content beside it, on the same two lines all the way down the page. */
+  .frame {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media (min-width: 62rem) {
+    .frame {
+      grid-template-columns: var(--rail) minmax(0, 1fr);
+      column-gap: var(--gap);
+    }
   }
 }
