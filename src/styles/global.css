@@ -77,9 +77,9 @@
   a {
     color: var(--green);
     text-decoration-line: underline;
-    text-decoration-thickness: 0.075em;
+    text-decoration-thickness: max(1px, 0.05em);
     text-decoration-color: currentColor;
-    text-underline-offset: 0.18em;
+    text-underline-offset: 0.2em;
   }
 
   @media (hover: hover) and (pointer: fine) {

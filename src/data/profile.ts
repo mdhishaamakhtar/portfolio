@@ -303,7 +303,7 @@ export const recognition: Credit[] = [
 ];
 
 export const community = {
-  title: "Backend developer, GDSC VIT",
+  title: "Backend Developer, GDSC VIT",
   when: "Apr 2020 to Dec 2022",
   href: "https://dscvit.com",
   detail:

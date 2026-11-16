@@ -23,18 +23,20 @@ const headingId = `${id}-title`;
 
 <style>
   .section {
-    padding-top: clamp(3.25rem, 8vw, 4.75rem);
+    padding-top: clamp(3.5rem, 9vw, 5.5rem);
   }
 
-  /* A clear step above the entry titles, with a hairline so a new
-     section reads as one while scrolling. */
+  /* Italic, so a section's name is a different voice from the upright
+     entry titles beneath it as well as a step larger, with a hairline so
+     a new section reads as one while scrolling. */
   .title {
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.375rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--hairline);
-    font-size: clamp(1.75rem, 4.5vw, 2.25rem);
-    line-height: 1.2;
-    font-weight: 600;
+    font-size: clamp(1.875rem, 5vw, 2.5rem);
+    line-height: 1.1;
+    font-weight: 500;
+    font-style: italic;
     color: var(--brown);
   }
 

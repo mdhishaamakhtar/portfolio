@@ -47,29 +47,25 @@ const projectLinks: Record<string, { text: string; name: string }> = {
 
 <Base schemas={[profileGraph(portraitUrl)]}>
   <header class="intro">
-    <div class="who">
-      <h1 class="name">{PERSON.name}</h1>
-      <p class="pride">
-        <span class="bi" aria-hidden="true">
-          <i></i>
-          <i></i>
-          <i></i>
-        </span>
-        <span>Bi, and proud of it.</span>
-      </p>
-    </div>
-    <div class="what">
-      <p class="lede">{hero.lede}</p>
-      <ul class="links">
-        {links.map((link) => (
-          <li>
-            <a href={link.href} rel={link.me ? "me noopener" : undefined}>
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <h1 class="name">{PERSON.name}</h1>
+    <p class="pride">
+      <span class="bi" aria-hidden="true">
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+      <span>Bi, and proud of it.</span>
+    </p>
+    <p class="lede">{hero.lede}</p>
+    <ul class="links">
+      {links.map((link) => (
+        <li>
+          <a href={link.href} rel={link.me ? "me noopener" : undefined}>
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
     <Image
       src={portrait}
       alt={`${PERSON.givenName} laughing, in glasses and a denim shirt, in warm afternoon light`}
@@ -178,9 +174,11 @@ const projectLinks: Record<string, { text: string; name: string }> = {
             </a>
           </p>
         </div>
-        <p class="when">
-          With Sharanya Mukherjee and Dr. R. Kannadasan · {research.venue} ·
-          {research.arxiv.id}
+        <p class="when credits">
+          <span>With Sharanya Mukherjee and Dr.&nbsp;R.&nbsp;Kannadasan</span>
+          <span>
+            {research.venue}, {research.arxiv.id}
+          </span>
         </p>
         <p>{research.summary}</p>
       </article>
@@ -245,14 +243,16 @@ const projectLinks: Record<string, { text: string; name: string }> = {
     </Section>
 
     <Section id="contact" title="Contact">
-      <p>
-        Email is the best way to reach me. I’m always happy to talk about
-        backend systems, Urdu, or something you’re building for the people who
-        usually get left out.
-      </p>
-      <p class="email">
-        <a href={LINKS.email}>{PERSON.email}</a>
-      </p>
+      <div class="contact">
+        <p>
+          Email is the best way to reach me. I’m always happy to talk about
+          backend systems, Urdu, or something you’re building for the people who
+          usually get left out.
+        </p>
+        <p class="email">
+          <a href={LINKS.email}>{PERSON.email}</a>
+        </p>
+      </div>
     </Section>
   </main>
 
@@ -260,43 +260,40 @@ const projectLinks: Record<string, { text: string; name: string }> = {
 </Base>
 
 <style>
-  /* On a phone the photo sits beside the name, and the line and links run
-     full width beneath. On wider screens the photo takes its own column. */
+  /* The name is set to the measure: one line, exactly as wide as the
+     column beneath it, at every screen size. Everything else on the page
+     is quiet so this can be the one large thing. */
   .intro {
+    container-type: inline-size;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
-      "who photo"
-      "what what";
-    gap: 1.25rem;
+      "name name"
+      "pride pride"
+      "lede photo"
+      "links links";
+    column-gap: 1.25rem;
     align-items: center;
   }
 
-  .who {
-    grid-area: who;
-  }
-
-  .what {
-    grid-area: what;
-  }
-
-  .intro :global(.portrait) {
-    grid-area: photo;
-  }
-
   .name {
-    font-size: clamp(2.5rem, 7.5vw, 4rem);
+    grid-area: name;
+    /* The name is 7.79em wide at this weight and tracking, so dividing
+       the column by a touch more fills the line with a hair to spare. */
+    font-size: calc(100cqi / 7.8);
     line-height: 1;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: -0.02em;
+    white-space: nowrap;
     color: var(--brown);
   }
 
   .pride {
+    grid-area: pride;
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin-top: 0.875rem;
+    margin-top: 0.75rem;
     font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem);
     font-style: italic;
     color: var(--quiet);
@@ -324,18 +321,20 @@ const projectLinks: Record<string, { text: string; name: string }> = {
   }
 
   .lede {
-    max-width: 32ch;
+    grid-area: lede;
+    margin-top: 1.5rem;
     font-size: clamp(1.3125rem, 2.8vw, 1.75rem);
     line-height: 1.35;
   }
 
   .links {
+    grid-area: links;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.25rem 1.25rem;
+    gap: 0.25rem 1.5rem;
     list-style: none;
     padding: 0;
-    margin-top: 1.25rem;
+    margin-top: 1rem;
   }
 
   .links a {
@@ -344,48 +343,54 @@ const projectLinks: Record<string, { text: string; name: string }> = {
   }
 
   .portrait {
+    grid-area: photo;
+    margin-top: 1.5rem;
     width: 6.5rem;
     height: auto;
     aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: 50% 30%;
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     box-shadow:
-      0 1px 2px rgb(45 45 45 / 0.12),
-      0 14px 28px -14px rgb(45 45 45 / 0.4);
+      0 0 0 1px rgb(127 85 57 / 0.14),
+      0 18px 30px -18px rgb(84 56 38 / 0.55);
   }
 
-  /* Anything wider than a phone: the photo anchors the whole
-     introduction, spanning the name, the line and the links, centred
-     against all of them. */
+  /* Anything wider than a phone: the photo stands beside everything under
+     the name. Its top meets the bi rule's line and its bottom meets the
+     links, with the introduction centred in between. */
   @media (min-width: 34rem) {
     .intro {
       grid-template-areas:
-        "who photo"
-        "what photo";
-      gap: 1.25rem 2.5rem;
+        "name name"
+        "pride photo"
+        "lede photo"
+        "links photo";
+      grid-template-rows: auto auto 1fr auto;
+      column-gap: 2.5rem;
     }
 
-    .who {
-      align-self: end;
+    .pride {
+      margin-top: 1.5rem;
     }
 
-    .what {
-      align-self: start;
+    .lede {
+      margin-top: 0;
+      max-width: 30ch;
     }
 
-    .intro :global(.portrait) {
-      align-self: center;
+    .links {
+      margin-top: 0;
+    }
+
+    .links a {
+      padding-bottom: 0;
     }
 
     .portrait {
+      align-self: start;
+      margin-top: 1.5rem;
       width: clamp(8.5rem, 18vw, 11.5rem);
-    }
-  }
-
-  @media (min-width: 48rem) {
-    .name {
-      white-space: nowrap;
     }
   }
 
@@ -399,7 +404,7 @@ const projectLinks: Record<string, { text: string; name: string }> = {
 
   .stack {
     display: grid;
-    gap: clamp(1.5rem, 4vw, 2rem);
+    gap: clamp(1.75rem, 4.5vw, 2.5rem);
     list-style: none;
     padding: 0;
   }
@@ -443,6 +448,11 @@ const projectLinks: Record<string, { text: string; name: string }> = {
     color: var(--quiet);
   }
 
+  /* Who it was with, then where it appeared, each on its own line. */
+  .credits {
+    display: grid;
+  }
+
   /* A short, fine dash in brown: lighter than a disc, closer to the
      weight of Cormorant's strokes. */
   .points {
@@ -466,6 +476,18 @@ const projectLinks: Record<string, { text: string; name: string }> = {
     width: 0.625rem;
     height: 1px;
     background: var(--brown);
+  }
+
+  /* With room in the margin, the dashes hang outside the column, so every
+     line of text on the page starts at the same edge. */
+  @media (min-width: 48rem) {
+    .points li {
+      padding-left: 0;
+    }
+
+    .points li::before {
+      left: -1.375rem;
+    }
   }
 
   /* The title on the left and its links on the right, above the dates, so
@@ -507,11 +529,17 @@ const projectLinks: Record<string, { text: string; name: string }> = {
     color: var(--ink);
   }
 
-  /* The last thing to do on the page, so it reads a step up. */
+  /* The page opens with the name set large and closes with the address
+     set large: the one thing to do after reading. It shrinks to stay on
+     one line on a phone. */
+  .contact {
+    container-type: inline-size;
+  }
+
   .email {
-    margin-top: 1rem;
-    font-size: clamp(1.25rem, 3vw, 1.5rem);
-    font-weight: 600;
-    overflow-wrap: anywhere;
+    margin-top: 1.25rem;
+    font-size: min(2.25rem, 100cqi / 15.5);
+    line-height: 1.2;
+    white-space: nowrap;
   }
 </style>
